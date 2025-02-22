@@ -1,0 +1,14 @@
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\bin\Debug\net8.0\EmployeeSalary.exe
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\bin\Debug\net8.0\EmployeeSalary.deps.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\bin\Debug\net8.0\EmployeeSalary.runtimeconfig.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\bin\Debug\net8.0\EmployeeSalary.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\bin\Debug\net8.0\EmployeeSalary.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.AssemblyInfoInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.AssemblyInfo.cs
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.csproj.CoreCompileInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\refint\EmployeeSalary.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\EmployeeSalary.genruntimeconfig.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractMethod\EmployeeSalary\obj\Debug\net8.0\ref\EmployeeSalary.dll

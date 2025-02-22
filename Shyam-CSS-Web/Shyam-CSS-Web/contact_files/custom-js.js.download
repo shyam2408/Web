@@ -1,0 +1,1423 @@
+var activewebinar = false;
+// Apply match height behaviour
+// jQuery('.grid-item .post-content, #logo-section figcaption, .faq-inner-section .elementor-text-editor, .heading-height .elementor-heading-title').matchHeight();
+jQuery(document).ready(function($) {
+    $('.grid-item .post-content, #logo-section figcaption, .faq-inner-section .elementor-text-editor, .heading-height .elementor-heading-title').matchHeight();
+});
+
+//Button appending on before the Code snippet for Blog page
+jQuery("pre").prepend("<button class='btn' data-clipboard-action='copy' data-clipboard-target='pre' title='Copy to clipboard'></button>");
+
+//Adding the id and data-clipbord-targer attribute for code snippet and button.
+window.addEventListener('DOMContentLoaded', function (event) {
+  var pre_length = jQuery('pre').length;
+  for (var i = 0; i < pre_length; i++) {
+    jQuery('pre:eq(' + i + ')').attr('id', 'pre' + i);
+    jQuery('button.btn:eq(' + i + ')').attr('data-clipboard-target', '#pre' + i);
+  }
+});
+jQuery(document).ready(function () {
+  jQuery("button.btn").each(function () {
+    jQuery(this).click(function () {
+      var currentbtn = jQuery(this);
+      jQuery(currentbtn).addClass('copied');
+      setTimeout(function () {
+        jQuery(currentbtn).removeClass('copied');
+      }, 1800);
+    });
+  });
+});
+
+// Initialising the Clipboard Js provided keyword.
+if (jQuery('pre').length > 0) {
+  var clipboard = new ClipboardJS('button');
+  clipboard.on('success', function (event) {
+    event.clearSelection();
+  })
+}
+
+jQuery('#custom-close i').removeClass('fa fa-close');
+jQuery('#custom-close i').removeClass('fas fa-times');
+jQuery('#custom-close i').addClass('close-icon-custom');
+jQuery('#top-header .pr-button .pr-button-text-icon-wrapper i').addClass('request-demo-right-arrow-icon');
+jQuery('#top-header .pr-button .pr-button-text-icon-wrapper i').removeClass('fa-angle-right');
+jQuery('#top-header .pr-button .pr-button-text-icon-wrapper i').removeClass('fa');
+jQuery('.desktop-myaccount i').addClass('myadmin-custom-icon');
+jQuery(" #menu-main-menu .sub-menu>li").hover(
+  function () {
+    jQuery(this).addClass('hoverbackground');
+  }, function () {
+    jQuery(this).removeClass('hoverbackground');
+  }
+);
+jQuery("#menu-main-menu .sub-menu").hover(
+  function () {
+    jQuery(this).prev().addClass('hovertext');
+  }, function () {
+    jQuery(this).prev().removeClass('hovertext');
+  }
+);
+jQuery("#play-hover").hover(function () {
+  jQuery("#play-icon-animation").addClass('hover-animation');
+},
+  function () {
+    jQuery("#play-icon-animation").removeClass('hover-animation');
+  });
+// Method to append the details for the URL pricing page to the Free License Getting started Button URL
+jQuery(document).ready(function () {
+  if (window.location.pathname == "/pricing") {
+    var queryStrings = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    var intialURLValue = jQuery('#free-user-plan a').attr("href");
+    for (var i = 0; i < queryStrings.length; i++) {
+      if (queryStrings[i] != window.location.href) {
+        intialURLValue = intialURLValue + "&" + queryStrings[i];
+      }
+    }
+
+    if (intialURLValue != null && intialURLValue != "" && intialURLValue != "undefined") {
+      jQuery('#free-user-plan a').attr("href", intialURLValue);
+    }
+  }
+});
+
+
+
+if (window.location.pathname == "/") {
+  jQuery('#quick-overview-video .elementor-custom-embed-image-overlay img').detach();
+  jQuery('#quick-overview-video .elementor-custom-embed-image-overlay').append("<div id='video-content' class='home-video-section'>Quick Overview<div id='home-page-video-icon' class='home-video-section'></div></div>");
+}
+
+jQuery(".close-tigger").after("<div id='mobile-custom-close-icon'><span>✕</span></div>");
+jQuery(document).ready(function () {
+  jQuery('#custom-search-icon .elementor-icon svg').click(function () {
+    jQuery('#header-main-menu-top').removeClass('show').addClass('hide');
+    /* jQuery('#embedded-reporting-header').removeClass('hide').addClass('show'); */
+    jQuery('#custom-search-icon .elementor-icon svg').removeClass('show').addClass('hide');
+    jQuery('#header-search').removeClass('hide').addClass('show');
+    jQuery('#header-search form .elementor-search-form__input').attr('id', 'search-input-desktop');
+    jQuery('#header-search form .elementor-search-form__input').attr('autocomplete', 'off');
+    jQuery('#header-search form .elementor-search-form__input').attr('placeholder', 'Search');
+    jQuery('#header-search form .elementor-search-form__input').css('padding-right', '0px !important');
+    jQuery('#search-input-desktop').focus();
+
+    if (jQuery(window).scrollTop() > 0) {
+      jQuery('#header-search').css('position', 'static');
+      jQuery('#header-search').css('top', '0px');
+    } else {
+      jQuery('#header-search').css('position', 'static');
+      jQuery('.elementor-sticky__spacer').removeClass('show').addClass('hide');
+      jQuery('#header-search').css('top', jQuery("#webinar-popup")[0].getBoundingClientRect().height + 'px');
+    }
+
+
+  });
+});
+
+jQuery(document).ready(function () {
+  jQuery('.elementor-search-form').submit(function () {
+    if (jQuery('.elementor-search-form__input').val() == '') {
+      return false;
+    }
+  });
+  jQuery('.search-form').submit(function () {
+    if (jQuery('.search-field').val() == '') {
+      return false;
+    }
+  });
+  jQuery(".elementor-search-form #mobile-search-input").on('keypress', function (e) {
+    if (e.which == 13) {
+      jQuery('#mobile-search-form').submit();
+    }
+  });
+  jQuery('#mobile-search-icon').click(function () {
+    jQuery('.elementor-search-form').submit();
+  });
+  jQuery('#custom-close').click(function () {
+    jQuery('#header-main-menu-top').removeClass('hide').addClass('show');
+    /* jQuery('#embedded-reporting-header').removeClass('hide').addClass('show'); */
+    jQuery('#custom-search-icon .elementor-icon svg').removeClass('hide').addClass('show');
+    jQuery('#header-search').removeClass('show').addClass('hide');
+
+    webinar_check();
+  });
+});
+jQuery(window).on("load", function () {
+  //medium-zoom library
+  var post_length = jQuery(".post-template-default").length;
+  if (post_length > 0) {
+    //External links open new tab
+    jQuery('.post-entry-content a').filter(function () {
+      return this.hostname && this.hostname !== location.hostname;
+    }).attr({ rel: "nofollow noreferrer", target: "_blank" });
+  }
+  if (jQuery(window).scrollTop() > 0) {
+    jQuery('#header-search').addClass("header-boxshadow");
+    jQuery('#top-header').addClass("header-background");
+    jQuery('.page-mobile-header').addClass("header-background");
+
+  }
+  else {
+    jQuery('#top-header').removeClass("header-background");
+    jQuery('.page-mobile-header').removeClass("header-background");
+    jQuery('.elementor-sticky__spacer').removeClass('show').addClass('hide');
+
+  }
+});
+jQuery(window).on("scroll", function () {
+  if (jQuery(window).scrollTop() > 0) {
+    jQuery('.page-mobile-header').addClass('mobile-header-static');
+    jQuery('#top-header').addClass("header-background");
+    jQuery('#top-header').addClass(" header-boxshadow");
+    jQuery('#header-search').addClass("header-boxshadow");
+    jQuery('#header-search').css('top', '0px');
+    jQuery('#header-search').css('position', 'static');
+
+  } else {
+    jQuery('.page-mobile-header').removeClass('mobile-header-static');
+    jQuery('#header-search').removeClass(" header-boxshadow");
+    jQuery('#top-header').removeClass("header-background");
+    jQuery('#top-header').removeClass("header-boxshadow");
+    jQuery('#header-search').css('position', 'static');
+    webinar_check();
+  }
+});
+jQuery(window).on("scroll", function () {
+  if (jQuery(window).scrollTop() > 0) {
+    jQuery('#top-header').addClass('header-position-scroll');
+    jQuery('#top-header').removeClass('header-position-on-top');
+  }
+  else {
+    jQuery('#top-header').addClass('header-position-on-top');
+    jQuery('#top-header').removeClass('header-position-scroll');
+  }
+});
+
+//tab index
+
+jQuery("#header-menu-search-icon .elementor-icon i").attr('tabindex', '0');
+jQuery("#header-menu-search-icon .elementor-icon i").on('keypress', function (e) {
+  if (e.which == 13) {
+    jQuery('#header-menu-search-icon .elementor-icon i').click();
+  }
+});
+jQuery("#custom-close .elementor-icon i").attr('tabindex', '0');
+jQuery("#custom-close .elementor-icon i").on('keypress', function (e) {
+  if (e.which == 13) {
+    jQuery('#custom-close').click();
+  }
+});
+
+//mobile header my account request demo button and search form
+jQuery("#menu-main-menu-1 ").append("  <li class='arrow-icon'><a  href='/account' target='_blank' rel='nofollow'> My Account</a></li><li></li>")
+var mySecondDiv = jQuery("<div id='mobile-div'><a id='mobile-request-demo' href='https://app.boldid.net/reports/register?plan=72' target='_blank'><div class='pr-button-text-icon-wrapper custom-demo-button'><span>Sign Up Free</span><i class='request-demo-right-arrow-icon-mobile custom-demo-button-icon'></i></div></a><i class='fa fa-search'id='search-icon-width' aria-hidden='true' tabindex='0'></i></div>");
+jQuery('#menu-main-menu-1').append(mySecondDiv);
+
+var search_form = jQuery("<div class='elementor-widget-container' id='search_form'><form class='elementor-search-form' role='search' action='/' method='get' id='mobile-search-form'><div class='elementor-search-form__container'id='elementor-search-form'><i class='fa fa-search'id='mobile-search-icon' aria-hidden='true'/><input placeholder='Search' class='elementor-search-form__input' type='search' name='s' title='Search' value='' id='mobile-search-input' autocomplete='off'></div></form></div>");
+jQuery('#menu-main-menu-1 li:eq(0)').before(search_form);
+
+jQuery('#search-icon-width').click(function () {
+  jQuery('.close-tigger').css('display', 'none');
+  jQuery('#mobile-custom-close-icon').css('display', 'block');
+  jQuery('.mobile-navigation .menu > *+li').hide();
+  jQuery('.mobile-navigation .menu > li > a').hide();
+  jQuery('#mobile-div').hide();
+  jQuery('#search_form').show();
+  document.getElementById("mobile-search-input").focus();
+
+});
+jQuery('#mobile-custom-close-icon').click(function () {
+  jQuery('#mobile-custom-close-icon').css('display', 'none');
+  jQuery('.close-tigger').css('display', 'block');
+  jQuery('.mobile-navigation .menu > *+li').show();
+  jQuery('.mobile-navigation .menu > li > a').show();
+  jQuery('#mobile-div').show();
+  jQuery('#search_form').hide();
+});
+
+//Starting of the docs page script
+
+jQuery('.docs-template-default #docs-hamburger-menu .attachment-full').click(function () {
+  jQuery('.attachment-full').addClass('docs-menu');
+  jQuery('.mobile-navigation-overlay').addClass('mobile-menu-opened');
+  jQuery('.mobile-navigation').addClass('mobile-menu-opened');
+  jQuery('.mobile-navigation-inner').addClass('mobile-menu-opened');
+  jQuery('.docs-template-default').addClass('mob-menu-open');
+});
+if (window.innerWidth <= 768) {
+  jQuery('.wedocs-sidebar-background').addClass('mobile-menu-content-style');
+}
+window.onresize = resizefunction;
+function resizefunction() {
+  if (window.innerWidth <= 768) {
+    jQuery('.wedocs-sidebar-background').addClass('mobile-menu-content-style');
+  }
+  else {
+    jQuery('.wedocs-sidebar-background').removeClass('mobile-menu-content-style content-opened');
+    jQuery('.mobile-content-back').css('display', 'none');
+    jQuery('.content-title').css('display', 'block');
+  }
+
+  jQuery('.grid-item .post-content, #logo-section figcaption, .faq-inner-section .elementor-text-editor, .heading-height .elementor-heading-title').matchHeight();
+  if (jQuery(window).scrollTop() > 0) {
+    //      jQuery('#top-header').css('position', 'fixed');
+    jQuery('#header-search').css('position', 'fixed');
+  }
+  else {
+    //     jQuery('#top-header').css('position', 'relative');
+    jQuery('#header-search').css('position', 'static');
+    webinar_check();
+  }
+}
+//Home-page-new
+jQuery(document).ready(function () {
+  jQuery('.cloud-reporting, .enterprise-reporting, .embedded-reporting, .sdk-reporting').matchHeight();
+  jQuery('.pricing-on-premise, .pricing-cloud, .pricing-sdk, .pricing-add-on').matchHeight();
+  jQuery('#embedded-plan .product-details .description').matchHeight();
+  jQuery('#embedded-plan .product-details .plan-title').matchHeight();
+});
+jQuery(document).ready(function () {
+  if (jQuery('#nav-section').length) {
+    var nav_section_top_position = jQuery('#nav-section').offset().top - jQuery('#top-header').outerHeight() - jQuery('#nav-section').outerHeight();
+
+    var clicked = false;
+
+    jQuery('#nav-section ul li a.default').addClass('active');
+
+    jQuery('#nav-section ul li a').click(function (e) {
+      e.preventDefault();
+
+      jQuery('#nav-section ul li a.default').removeClass('active');
+      jQuery('#nav-section ul li a').removeClass('active');
+      jQuery(this).addClass('active');
+      clicked = true;
+      setTimeout(function () { clicked = false; }, 1000);
+      var header_height = jQuery('#top-header').outerHeight();
+      var navbar_height = jQuery('#nav-section').outerHeight();
+      var height_sum = header_height + navbar_height;
+      jQuery('#nav-section').addClass('sticky');
+      jQuery('#nav-section').css('top', header_height + 'px');
+      var scrollpos = jQuery(window).scrollTop();
+      if (scrollpos == 0) {
+
+        var current_link = jQuery(this).attr('href');
+        jQuery('html, body').animate({
+          scrollTop: jQuery(current_link).offset().top - height_sum
+        }, 1000);
+        return false;
+      }
+      else if (jQuery(window).scrollTop() > 0) {
+        var currLink = jQuery(this);
+        var refElement = jQuery(currLink.attr('href'));
+
+        jQuery('html, body').animate({
+          scrollTop: refElement.position().top - height_sum + 5
+        }, 800);
+        return false;
+      }
+
+
+    });
+    jQuery(window).on('scroll', function () {
+
+      if (jQuery(window).scrollTop() > nav_section_top_position) {
+        var header_height = jQuery('#top-header').outerHeight();
+        jQuery('#nav-section').addClass('sticky');
+        jQuery('#nav-section').css('top', header_height + 'px');
+      }
+      else {
+        jQuery('#nav-section').removeClass('sticky');
+      }
+      var scrollPos = jQuery(window).scrollTop();
+      var header_height = jQuery('#top-header').outerHeight();
+      var navbar_height = jQuery('#nav-section').outerHeight();
+      var height_sum = header_height + navbar_height;
+      jQuery('#nav-section ul li a').each(function (i) {
+        var scroll_Pos = jQuery(window).scrollTop() + height_sum;
+        var currLink = jQuery(this);
+        var refElement = jQuery(currLink.attr('href'));
+        if (clicked == false) {
+          if (refElement.position().top <= scroll_Pos) {
+            jQuery('#nav-section ul li a').removeClass('active');
+
+            // jQuery('#nav-section ul li a').eq(i).addClass('active');
+            currLink.addClass('active');
+          }
+        }
+
+      });
+
+    });
+  }
+});
+//scroll to top
+jQuery("#wpfront-scroll-top").on("click", function () {
+  jQuery('body,html').animate({
+    scrollTop: 0
+  }, 800);
+  return false;
+
+});
+
+// When the user scrolls down 20px from the top of the document, show the button
+jQuery(window).on("scroll", function () {
+  if (jQuery("#wpfront-scroll-top").length) {
+    if (jQuery(window).scrollTop() > 20) {
+      jQuery("#wpfront-scroll-top").css("display", "block");
+    } else {
+      jQuery("#wpfront-scroll-top").css("display", "none");
+    }
+  }
+});
+jQuery(window).on("load", function () {
+  jQuery('.wedocs-sidebar-background').css('display', 'block');
+});
+jQuery('#mobile-content-section').click(function () {
+  jQuery('.wedocs-sidebar-background').addClass('content-opened');
+  jQuery('.content-title').css('display', 'none');
+  jQuery('.mobile-content-back').css('display', 'block');
+
+});
+jQuery('.mobile-content-back').click(function () {
+  jQuery('.mobile-content-back').css('display', 'none');
+  jQuery('.content-title').css('visibility', 'hidden');
+  jQuery('.wedocs-sidebar-background').removeClass('content-opened');
+});
+
+jQuery('.docs-template-default .doc-nav-list .page_item_has_children a').each(function () {
+
+  jQuery(this).attr("title", jQuery(this).text());
+
+});
+jQuery(document).ready(function () {
+  jQuery("#ie-searchbox input").focusin(function () {
+    jQuery('#ie-searchbox .search-form').addClass('icon-active');
+  });
+  jQuery("#ie-searchbox input").focusout(function () {
+    jQuery('#ie-searchbox .search-form').removeClass('icon-active');
+  });
+});
+
+
+//End of the docs page script
+
+var version = detectIE();
+
+if (version > 0) {
+  jQuery(window).on("load", function () {
+    var dummy_content = jQuery("<div class='dummy-content'></div>");
+    jQuery('#top-header').after(dummy_content);
+  })
+
+  jQuery('#custom-search-icon .elementor-icon svg').click(function () {
+    document.querySelector('#top-header').style.position = "relative";
+    document.querySelector('#header-search').style.display = "block";
+  })
+}
+var edgeandIE = detectIEandEdge();
+if (edgeandIE > 0) {
+
+}
+
+
+function detectIE() {
+  var ua = window.navigator.userAgent;
+
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+  return false;
+}
+
+function detectIEandEdge() {
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+  var edge = ua.indexOf('Edge/');
+  if (edge > 0) {
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+
+  return false;
+}
+
+setTimeout(function () {
+  jQuery('#header-search form .elementor-search-form__input').attr('placeholder', 'Search');
+}, 5000);
+
+
+//pricing page script
+var pricing_horizatal_line = jQuery("<div id='pricing-horiz'></div>");
+jQuery('.elementor-price-table__features-list li:nth-child(1)').before(pricing_horizatal_line);
+
+if (jQuery('#pricing-tabs .eael-tabs-nav').length > 0) {
+  var utmQueryString = (location.href.split('?')[1] != '' && location.href.split('?')[1] != undefined) ? '?' + location.href.split('?')[1] : '';
+  jQuery('#pricing-tabs .eael-tabs-nav li').click(function () {
+    if (this.innerText.toLowerCase().trim() == 'cloud') {
+      history.pushState(location.href, null, location.origin + "/pricing" + utmQueryString);
+      jQuery('.on-premise-faq,.embedded-faq').removeClass('show').addClass('hide');
+      jQuery('.cloud-faq,.pricing-faq').removeClass('hide').addClass('show');
+      document.title = 'Pricing Plans | 15-day free trial | Bold Reports';
+      setTimeout(function () {
+        jQuery('.heading-height .elementor-heading-title, #pricing-cloud .plan-column .features').matchHeight();
+      }, 500);
+    } else if (this.innerText.toLowerCase().trim() == 'on-premise') {
+      history.pushState(location.href, null, location.origin + "/pricing/on-premise" + utmQueryString);
+      jQuery('.on-premise-faq,.pricing-faq').removeClass('hide').addClass('show');
+      jQuery('.cloud-faq,.embedded-faq').removeClass('show').addClass('hide');
+      document.title = 'Pricing for Business Intelligence Dashboard Software | Bold Reports';
+      setTimeout(function () {
+        jQuery('.heading-height .elementor-heading-title, #on-premise-plan .product-details').matchHeight();
+      }, 500);
+    } else if (this.innerText.toLowerCase().trim() == 'embedded') {
+      history.pushState(location.href, null, location.origin + "/pricing/embedded" + utmQueryString);
+      jQuery('.embedded-faq').removeClass('hide').addClass('show');
+      jQuery('.cloud-faq,.on-premise-faq,.pricing-faq').removeClass('show').addClass('hide');
+      document.title = 'Embedded Report Pricing – On-Premise and Cloud | Bold Reports';
+      setTimeout(function () {
+        jQuery('.heading-height .elementor-heading-title, #embedded-plan .product-details').matchHeight();
+      }, 500);
+    }
+  })
+}
+
+window.onpopstate = function () {
+  jQuery('#pricing-tabs .eael-tabs-nav li').removeClass('active').removeClass('active-default').removeClass('inactive');
+  jQuery('#pricing-tabs .eael-tabs-content .clearfix').removeClass('active').removeClass('active-default').removeClass('inactive');
+  if (location.pathname == "/pricing") {
+    jQuery('#pricing-tabs .eael-tabs-nav li').eq(0).addClass('active');
+    jQuery('#pricing-tabs .eael-tabs-content .clearfix').eq(0).addClass('active');
+    jQuery('.on-premise-faq,.embedded-faq').removeClass('show').addClass('hide');
+    jQuery('.cloud-faq,.pricing-faq').removeClass('hide').addClass('show');
+  } else if (location.pathname == "/pricing/on-premise") {
+    jQuery('#pricing-tabs .eael-tabs-nav li').eq(1).addClass('active');
+    jQuery('#pricing-tabs .eael-tabs-content .clearfix').eq(1).addClass('active');
+    jQuery('.on-premise-faq,.pricing-faq').removeClass('hide').addClass('show');
+    jQuery('.cloud-faq,.embedded-faq').removeClass('show').addClass('hide');
+  } else if (location.pathname == "/pricing/embedded") {
+    jQuery('#pricing-tabs .eael-tabs-nav li').eq(2).addClass('active');
+    jQuery('#pricing-tabs .eael-tabs-content .clearfix').eq(2).addClass('active');
+    jQuery('.embedded-faq').removeClass('hide').addClass('show');
+    jQuery('.cloud-faq,.on-premise-faq,.pricing-faq').removeClass('show').addClass('hide');
+  }
+  AppendPricingUrl();
+}
+
+// Method to append the details for the URL pricing page to the Free License Getting started Button URL
+function AppendPricingUrl() {
+  if (location.pathname == "/pricing" || location.pathname == "/pricing/on-premise" || location.pathname == "/pricing/embedded") {
+    var queryStrings = location.href.split('?')[1];
+    if (queryStrings != undefined && queryStrings != '') {
+      for (var i = 0; i < jQuery('.btn-link a').length; i++) {
+        jQuery('.btn-link a').eq(i).attr('href', jQuery('.btn-link a').eq(i).attr('href').split('&')[0] + '&' + queryStrings);
+      }
+    }
+  }
+  if (location.pathname == "/pricing") {
+    jQuery('.heading-height .elementor-heading-title, #pricing-cloud .plan-column .features').matchHeight();
+  } else if (location.pathname == "/pricing/on-premise") {
+    jQuery('.heading-height .elementor-heading-title, #on-premise-plan .product-details').matchHeight();
+  } else if (location.pathname == "/pricing/embedded") {
+    jQuery('.heading-height .elementor-heading-title, #embedded-plan .product-details').matchHeight();
+  }
+};
+
+
+
+
+
+
+
+// webinar check
+function webinar_check() {
+  if (activewebinar) {
+    jQuery('#header-search').css('top', jQuery("#webinar-popup")[0].getBoundingClientRect().height + 'px');
+  }
+  else {
+
+    jQuery('#header-search').css('top', '0px');
+  }
+}
+
+
+
+
+jQuery(window).on("load", function () {
+  if (jQuery('.data-sources-list').length > 0) {
+    jQuery('.animation-card').addClass('hide');
+    jQuery('.integration-sources').removeClass('hide');
+    jQuery('.data-sources-list .caption').matchHeight();
+  }
+});
+
+//Embedded pricing request a quote plan selection script
+jQuery(document).ready(function () {
+  jQuery('.request-a-quote-action-call-button').on("click", function (e) {
+    var plandetails = jQuery(this).parent().parent().prev().find('.heading').text().toLowerCase();
+    plandetails = plandetails.charAt(0).toUpperCase() + plandetails.slice(1);
+    jQuery('.request-plan').val(plandetails);
+    var height = jQuery('#request-a-quote-form').offset().top;
+    var body = jQuery("html, body");
+    var carry_value = 0;
+    if (jQuery('#top-header').css('position') != 'fixed') {
+      carry_value = jQuery('#top-header').height();
+    }
+    body.stop().animate({ scrollTop: height - carry_value }, 1000, 'swing');
+  });
+});
+
+//Live-chat toggle function for <a> tag in pricing page FAQ section
+jQuery("a.live-chat-button").click(function (event) {
+  event.preventDefault();
+  $crisp.push(["do", "chat:toggle"]);
+}
+)
+/*To toggle the release version nested icon action */
+jQuery("a.nested-toggle").click(function () {
+  jQuery("a.nested-toggle i").toggleClass('fa-plus-square');
+  jQuery("a.nested-toggle i").toggleClass('fa-minus-square');
+  jQuery(".nested-toggle-items").toggle("slow");
+});
+
+/*To play the video on clicking the title
+Start video portal changes */
+// jQuery(document).ready(function () {
+//   jQuery(".video-title h4").on("click", function () {
+//     jQuery(this).parent().parent().parent().parent().parent().prev().find(".thumbnail-image").trigger("click");
+//   });
+//   jQuery(".elementor-custom-embed-play").on("click", function () {
+//       jQuery(this).parent().find(".thumbnail-image").trigger("click");
+//   });
+// });
+
+jQuery(document).ready(function () {
+
+  //     jQuery(".search-video-title h4").on("click", function () {
+  //       jQuery(this).parent().parent().prev().find(".thumbnail-image").trigger("click");
+  //     });
+
+  /*jQuery(".s-video-title h4").on("click", function () { jQuery(this).parent().parent().parent().parent().parent().prev().find(".elementor-custom-embed-image-overlay").trigger("click");
+  });
+
+  jQuery(".search-video-title h4").on("click", function () {
+      jQuery(this).parent().parent().prev().find(".elementor-custom-embed-image-overlay").trigger("click");
+  });*/
+  jQuery('.search-video-post').submit(function () {
+    if (jQuery.trim(jQuery('.search-video-post>input[type="search"]').val()) == "") {
+      return false;
+    }
+  });
+});
+
+//Video Category dropdown list
+function videoCategoryShowcase() {
+  document.getElementById("video-category-showcase").classList.toggle("video-show-category");
+}
+window.addEventListener('click', function (event) {
+  if (!jQuery(event.target).hasClass('video-category-showcase-button')) {
+    var dropdowns = document.getElementsByClassName("video-category-showcase-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('video-show-category')) {
+        openDropdown.classList.remove('video-show-category');
+      }
+    }
+  }
+});
+/* End video portal changes  */
+/* Set delay in showing the chat button after 5 seconds */
+
+setTimeout(function () {
+  jQuery('#chatIconmobile').show();
+}, 5000);
+
+// Copy feed to clipboard blog home page
+var windows_max_width = window.matchMedia("(max-width: 767px)")
+jQuery(".Rss_feedcopy_btn").click(function () {
+  if (windows_max_width.matches) {
+    jQuery(".Rss_feedcopy_btn").html("Copied!");
+    setTimeout(function () {
+      jQuery(".Rss_feedcopy_btn").html("<i class='fas fa-rss'></i>");
+    }, 1500);
+  }
+  else {
+    document.getElementById("copied_div").style.visibility = "visible";
+    setTimeout(function () {
+      document.getElementById("copied_div").style.visibility = "hidden";
+    }, 1500);
+  }
+});
+// To re-initialse cf7 form subscription popup for blog home page
+jQuery(document).on('elementor/popup/show', (event, id, instance) => {
+  jQuery('.elementor-popup-modal form.wpcf7-form:not(.elementor)').each((index, formElement) => {
+    $cf7From = jQuery(formElement);
+    wpcf7.initForm($cf7From);
+    $cf7From.addClass('elementor');
+  });
+});
+jQuery(".subscribe_RSS_Feed").click(function () {
+  // Change text of button
+  jQuery(".subscribe_RSS_Feed").html("Copied! <i class='fas fa-rss'></i>");
+  setTimeout(function () {
+    jQuery(".subscribe_RSS_Feed").html("Subscribe RSS feed  <i class='fas fa-rss'></i>");
+  }, 1500);
+});
+// Search box validation & sanitize the string
+jQuery('form').submit(function () {
+  if (jQuery(this).find('input[name="s"]').length > 0) {
+    if (jQuery.trim(jQuery(this).find('input[name="s"]').val()) == "") {
+      return false;
+    }
+    else {
+      var search_result = jQuery(this).find('input[name="s"]').val().replace(/[&<>"'/]/ig, "");
+      jQuery(this).find('input[name="s"]').val(search_result);
+      return true;
+    }
+  }
+});
+//applying default elementor zoom for blog content images
+jQuery(function () {
+  jQuery('#blog-details-page-content img').each(function () {
+    var blog_image_link = jQuery(this).attr('src');
+    jQuery(this).replaceWith('<a href="' + blog_image_link + '">' + jQuery(this)[0].outerHTML + '</a>');
+  });
+});
+//Adding jQuery to remove the old search results values on search box
+jQuery(function () {
+  jQuery('#header-search form .elementor-search-form__input').val('');
+});
+// Initialize the push Notification for blog,author and tag pages
+var current_url = window.location.href;
+var pathArray = window.location.pathname.split('/');
+if (pathArray[1] == "blog" || pathArray[1] == "tag") {
+  setTimeout(function () {
+    window.OneSignal = window.OneSignal || [];
+    window.OneSignal.push(function () {
+      window.OneSignal.init(window._oneSignalInitOptions);
+    });
+  }, 30000);
+}
+// The below code used to trigger the event after schedule free demo form submitted
+if (window.location.pathname == "/schedule-free-demo") {
+  document.addEventListener("wpcf7mailfailed", function (event) {
+    var customer_email = event.detail.inputs[1].value;
+    dataLayer.push({
+      'event': 'RequestDemoLeadCreate',
+      'event_category': 'Bold Reports',
+      'event_label': 'Request Demo Lead Created',
+      'value': 0,
+      'cust_id': customer_email
+    });
+  }, false);
+  document.addEventListener("wpcf7mailsent", function (event) {
+    var emailvalue = event.detail.inputs[1].value;
+    dataLayer.push({
+      'event': 'RequestDemoLeadCreate',
+      'event_category': 'Bold Reports',
+      'event_label': 'Request Demo Lead Created',
+      'value': 1,
+      'cust_id': emailvalue
+    });
+  }, false);
+}
+// for  entire bold reports web page
+// jQuery(function () {
+//   jQuery('body img').each(function () {
+//     jQuery(this).attr('loading', 'lazy');
+//   });
+//   jQuery('#top-header img').removeAttr('loading');
+// 	jQuery('#feature-banner-img-loading').removeAttr('loading');
+// });
+
+jQuery(function () {
+  jQuery("#author-section .elementor-author-box .elementor-author-box__avatar a").removeAttr('href');
+});
+
+/* Dropdown press release button*/
+const dropdownBtn = document.getElementById("pressReleaseYearCategoryShowcase");
+const dropdownContent = document.getElementById("year-category");
+document.addEventListener("click", function (event) {
+  if (event.target.closest("#pressReleaseYearCategoryShowcase") || event.target.closest(".year-category-showcase-content")) {
+    return;
+  } else if (dropdownContent != null) {
+    dropdownContent.classList.remove("year-show-category");
+  }
+});
+
+/* Dropdown in the news button*/
+const dropdownBtnNews = document.getElementById("pressReleaseNewsYearCategoryShowcase");
+const dropdownContentNews = document.getElementById("year-category-news");
+
+document.addEventListener("click", function (event) {
+  if (event.target.closest("#pressReleaseNewsYearCategoryShowcase") || event.target.closest(".year-category-showcase-content")) {
+    return;
+  } else if (dropdownContentNews != null) {
+    dropdownContentNews.classList.remove("year-show-category");
+  }
+});
+
+//New badge for footer success story menu
+var menuItem = document.querySelector('.menu-item-97649 a');
+
+// Get the stored date
+var storedDate = localStorage.getItem('badgeAddedDate');
+
+// Get the current date
+var currentDate = new Date();
+
+// Define start and end dates for the badge visibility
+var startDate = new Date("05/03/2024 12:00:00 AM");
+var endDate = new Date("05/30/2024 10:00:00 AM");
+
+if (storedDate === null) {
+  // If there's no stored date, add the badge and store the current date
+  if (currentDate >= startDate && currentDate <= endDate) {
+    menuItem.insertAdjacentHTML('beforeend', '<span class="new-badge"> New </span>');
+  }
+  localStorage.setItem('badgeAddedDate', currentDate.toString());
+} else {
+  // Calculate the difference between the current date and the stored date
+  var dateDifference = Math.floor((currentDate - new Date(storedDate)) / (1000 * 60 * 60 * 24));
+
+  // Check if the current date is within the specified range
+  if (currentDate >= startDate && currentDate <= endDate) {
+    // If the difference is less than or equal to 30 days, add the badge
+    menuItem.insertAdjacentHTML('beforeend', '<span class="new-badge"> New </span>');
+  }
+}
+
+//videos page JS for playing videos
+var videoIdfromUrl;
+var result;
+var player_s;
+var iframe_zindex;
+var thumbnail_img_element;
+var lenghtvideo;
+var count;
+var imgsrc;
+var getouterhtml;
+var modal_content_element;
+var getselected_img_id;
+var videoplayer_iframe_element;
+
+//on page load add incremental id to each video image element
+thumbnail_img_element = document.getElementsByClassName('thumbnail-image');
+lenghtvideo = thumbnail_img_element.length;
+count = 0;
+for (var i = 0; i < lenghtvideo; i++) {
+  imgsrc = thumbnail_img_element[i].src;//swapping
+  getouterhtml = thumbnail_img_element[i].outerHTML;
+  getouterhtml = "<img class=" + "thumbnail-image style=" + "margin-top:-10%;margin-bottom:-10%;" + " id=" + count + " alt=" + "thumbnail image" + " src=" + imgsrc + ">"
+  thumbnail_img_element[i].outerHTML = getouterhtml;
+  count++;
+}
+
+jQuery('.thumbnail-image').click(function () {
+
+  result = "";
+  player_s = {};
+  videoIdfromUrl = jQuery(this)[0].currentSrc;
+  result = videoIdfromUrl.match(/vi\/(.*)\//)[1];
+  //add iframe element tag on clicking particular video 
+  modal_content_element = document.getElementsByClassName('modal-content');
+  getselected_img_id = jQuery(this)[0].id;
+  modal_content_element[getselected_img_id].innerHTML = "<div id=" + "videoplayer-iframe" + " > </div>"
+
+  onYouTubeIframeAPIReady("data"); //passing dummy parameter.
+
+});
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+function onYouTubeIframeAPIReady(data) {
+  if (data != undefined && data != null) {
+    player_s = new YT.Player('videoplayer-iframe', {
+
+      width: 640,
+      height: 360,
+      videoId: result,
+      playerVars: {
+        'rel': 0,
+        'modestbranding': 1
+      },
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+}
+
+function onPlayerReady(event) {
+  jQuery('.popup-modal').removeClass('hide-popup');
+  iframe_zindex = document.getElementById('videoplayer-iframe');
+  iframe_zindex.parentElement.parentElement.style.zIndex = '1000';
+  //player_s.playVideo();
+  event.target.playVideo();
+}
+var done = false;
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    done = true;
+  }
+}
+
+jQuery('.close').click(function () {
+  player_s.stopVideo();
+  jQuery('.popup-modal').addClass("hide-popup");
+  if (iframe_zindex.parentElement != undefined && iframe_zindex.parentElement != null) {
+    iframe_zindex.parentElement.parentElement.style.zIndex = '';
+  }
+  videoplayer_iframe_element = document.getElementById('videoplayer-iframe');
+  if (videoplayer_iframe_element != undefined && videoplayer_iframe_element != null) {
+    videoplayer_iframe_element.remove();
+  }
+});
+
+//To play the video on clicking the title and play icon
+jQuery(document).ready(function () {
+  jQuery(".video-title h4").on("click", function () {
+    jQuery(this).parent().parent().parent().parent().parent().prev().find(".thumbnail-image").trigger("click");
+  });
+  jQuery(".elementor-custom-embed-play").on("click", function () {
+    jQuery(this).parent().find(".thumbnail-image").trigger("click");
+  });
+});
+//Search section video play JS
+if (window.location.href.includes("https://www.boldreports.com/?s=")) {
+  var videoIdfromUrl;
+  var result;
+  var player_s;
+  var iframe_zindex;
+  var thumbnail_img_element;
+  var lenghtvideo;
+  var count;
+  var imgsrc;
+  var getouterhtml;
+  var modal_content_element;
+  var getselected_img_id;
+  var videoplayer_iframe_element;
+
+  //on page load add incremental id to each video image element
+  thumbnail_img_element = document.getElementsByClassName('thumbnail-image');
+  lenghtvideo = thumbnail_img_element.length;
+  count = 0;
+  for (var i = 0; i < lenghtvideo; i++) {
+    imgsrc = thumbnail_img_element[i].src;//swapping
+    getouterhtml = thumbnail_img_element[i].outerHTML;
+    getouterhtml = "<img class=" + "thumbnail-image style=" + "margin-top:-10%;margin-bottom:-10%;" + " id=" + count + " alt=" + "thumbnail image" + " src=" + imgsrc + ">"
+    thumbnail_img_element[i].outerHTML = getouterhtml;
+    count++;
+  }
+
+  jQuery('.thumbnail-image').click(function () {
+
+    result = "";
+    player_s = {};
+    videoIdfromUrl = jQuery(this)[0].currentSrc;
+    result = videoIdfromUrl.match(/vi\/(.*)\//)[1];
+    //add iframe element tag on clicking particular video 
+    modal_content_element = document.getElementsByClassName('modal-content');
+    getselected_img_id = jQuery(this)[0].id;
+    modal_content_element[getselected_img_id].innerHTML = "<div id=" + "videoplayer-iframe" + " > </div>"
+
+    onYouTubeIframeAPIReady("data"); //passing dummy parameter.
+
+  });
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  function onYouTubeIframeAPIReady(data) {
+    if (data != undefined && data != null) {
+      player_s = new YT.Player('videoplayer-iframe', {
+
+        width: 640,
+        height: 360,
+        videoId: result,
+        playerVars: {
+          'rel': 0,
+          'modestbranding': 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+  }
+
+  function onPlayerReady(event) {
+    jQuery('.popup-modal').removeClass('hide-popup');
+    iframe_zindex = document.getElementById('videoplayer-iframe');
+    iframe_zindex.parentElement.parentElement.style.zIndex = '1000';
+    //player_s.playVideo();
+    event.target.playVideo();
+  }
+  var done = false;
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      done = true;
+    }
+  }
+
+  jQuery('.close').click(function () {
+    player_s.stopVideo();
+    jQuery('.popup-modal').addClass("hide-popup");
+    if (iframe_zindex.parentElement != undefined && iframe_zindex.parentElement != null) {
+      iframe_zindex.parentElement.parentElement.style.zIndex = '';
+    }
+    videoplayer_iframe_element = document.getElementById('videoplayer-iframe');
+    if (videoplayer_iframe_element != undefined && videoplayer_iframe_element != null) {
+      videoplayer_iframe_element.remove();
+    }
+  });
+
+  //To play the video on clicking the title and play icon
+  jQuery(document).ready(function () {
+    jQuery(".search-video-title h4").on("click", function () {
+      jQuery(this).parent().parent().prev().find(".thumbnail-image").trigger("click");
+    });
+  });
+}
+
+//note section for blog details page
+jQuery(document).ready(function () {
+  // Check if the element with class 'blog-details-page-content-start' exists
+  if (jQuery('.blog-details-page-content-start').length > 0) {
+    document.querySelectorAll('p').forEach(function (element) {
+      if (element.textContent.includes('Note:')) {
+        var text = element.innerHTML;
+        var newText = text.replace(/Note:([^<]*)/, '<span class="blog-icon-info"><i class="fas ">&#xf12a;</i></span><span class="blog-note-info">Note</span> <span class="blog-note-content">$1</span>');
+        element.innerHTML = newText;
+        element.classList.add('blog-note-container');
+      }
+    });
+    // Remove <br> tags within elements with the class "blog-note-container"
+    document.querySelectorAll('.blog-note-container').forEach(function (element) {
+      var brTags = element.querySelectorAll('br');
+      brTags.forEach(function (br) {
+        br.parentNode.removeChild(br);
+      });
+    });
+  }
+});
+jQuery(".tologtheleaddetails").click(function () {
+  var url = jQuery('.tologtheleaddetails a').attr('href');
+  var urlParams = new URLSearchParams(url.split('?')[1]);
+  var paramsObj = {};
+  for (let pair of urlParams.entries()) {
+    paramsObj[pair[0]] = pair[1];
+  }
+  paramsObj.internal_tracking_lead_source = localStorage.getItem('internal_tracking_lead_source');
+  paramsObj.internal_tracking_referralurl = localStorage.getItem('internal_tracking_referralurl');
+  paramsObj.internal_tracking_leadcategory = localStorage.getItem('internal_tracking_leadcategory');
+  paramsObj.internal_tracking_landingpageurl = localStorage.getItem('internal_tracking_landingpageurl');
+
+  var data = JSON.stringify(paramsObj);
+  var subject = "Trial Lead Details";
+
+  jQuery.ajax({
+    type: "POST",
+    data: {
+      action: "log_to_exceptionless",
+      subject: subject,
+      data: data
+    },
+    dataType: 'json',
+    success: function (subscriptionResponseData) {
+      // handle success
+      console.log(subscriptionResponseData);
+    },
+    error: function (err) {
+      // handle error
+      console.log(err);
+    }
+  });
+});
+
+// 15 Day Try Free URL change or Pricing Plan ID Change - STARTS HERE
+jQuery(document).ready(function () {
+  if (!(location.pathname.includes('/community-license') || location.pathname.includes('/pricing') || location.pathname =='/')) {
+    jQuery("a[href^='https://app.boldid.net/reporting/embedded/register?plan=']").each(function () {
+      jQuery(this).attr('href', "https://app.boldid.net/reporting/embedded/register?plan=194&evaluation=v2");
+    });
+  }
+});
+// ENDS HERE
+
+// ONBOARDing DEMO CODE CHANGES - STARTS HERE
+
+// Phone field country selection with pin code
+var observer = new MutationObserver(function (mutations) {
+  var phoneInput = document.querySelector('.phone-field input');
+  if (phoneInput) {
+    setTimeout(function () {
+      phoneInput.value = "+1"; // Set the initial value to "+1"
+      window.intlTelInput(phoneInput, {
+        allowDropdown: true,
+        autoHideDialCode: false,
+        autoPlaceholder: "off",
+        formatOnDisplay: true,
+        nationalMode: false,
+        initialCountry: "us",
+        preferredCountries: ['us', 'gb'],
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+        customPlaceholder: function (selectedCountryPlaceholder, selectedCountryData) {
+          return "Phone Number *";
+        }
+      });
+    }, 7000); // Delay the initialization and setting of the initial value by 1 second
+    observer.disconnect(); // Stop observing once we've found the input
+  }
+});
+
+observer.observe(document.body, {
+  childList: true, // Report added/removed nodes
+  subtree: true // Also observe child nodes
+});
+
+// TimeZone Field
+document.addEventListener('DOMContentLoaded', function () {
+  var select = document.getElementById('timezone-select');
+  var hidden = document.getElementById('timezone');
+
+  if (select && hidden) {
+    var timezones = timezoneData;
+    // Define your preferred timezones
+    var preferredTimezones = ['UTC'];
+
+    // Append preferred timezones first
+    for (var i = 0; i < preferredTimezones.length; i++) {
+      var option = document.createElement('option');
+      option.value = option.text = preferredTimezones[i];
+      select.appendChild(option);
+    }
+
+    // Populate the select field with the rest of the timezones
+    for (var i = 0; i < timezones.length; i++) {
+      // Skip if it's a preferred timezone
+      if (preferredTimezones.includes(timezones[i])) continue;
+
+      var option = document.createElement('option');
+      option.value = option.text = timezones[i];
+      select.appendChild(option);
+    }
+
+    // Set the value of the hidden field to the current value of the select field
+    hidden.value = select.value;
+
+    // Update the hidden field when a timezone is selected
+    select.addEventListener('change', function () {
+      hidden.value = this.value;
+    });
+  }
+});
+// ONBOARDing DEMO CODE CHANGES -ENDS HERE
+
+
+// DPA Page Form Request -- STARTS HERE
+if (location.pathname.includes('/legal/dpa')) {
+  setTimeout(function () {
+    jQuery("#dpa-acceptance input").prop("checked", true);
+  }, 5000);
+
+  jQuery(window).resize(function () {
+    if (jQuery('#iframe-container').css("display") !== "block") {
+      exitIframeFullBrowser();
+    }
+  });
+
+  function iframeFullBrowser() {
+    jQuery('#iframe-container').show();
+    jQuery('#iframe-container').addClass('full-browser');
+    jQuery('body').css('overflow-y', 'hidden');
+    jQuery('#header-menu, #header-menu-mobile, #chatIcon').hide();
+  }
+
+  function exitIframeFullBrowser() {
+    jQuery('#iframe-container').hide();
+    jQuery('#iframe-container').removeClass('full-browser');
+    jQuery('body').css('overflow-y', 'visible');
+    jQuery('#chatIcon').show();
+    if (jQuery(window).width() > 1024) {
+      jQuery('#header-menu-mobile, #header-menu-mobile.elementor-sticky--effects').hide();
+      jQuery('#header-menu, #header-menu.elementor-sticky--effects').show();
+    }
+    else if (jQuery(window).width() <= 1024) {
+      jQuery('#header-menu, #header-menu.elementor-sticky--effects').hide();
+      jQuery('#header-menu-mobile, #header-menu-mobile.elementor-sticky--effects').show();
+    }
+  }
+
+  jQuery('#iframe-container .dpa-iframe-close').click(function () {
+    exitIframeFullBrowser();
+  });
+
+  document.addEventListener('wpcf7mailsent', function (event) {
+    var dpaFormResponse = event.detail.apiResponse;
+    const CountryList = { "Select Country *": "", "Afghanistan": "1950", "Åland Islands": "2102", "Albania": "2103", "Algeria": "2104", "American Samoa": "2105", "Andorra": "2106", "Angola": "2107", "Anguilla": "2108", "Antarctica": "2109", "Antigua and Barbuda": "2110", "Argentina": "2111", "Armenia": "2112", "Aruba": "2113", "Australia": "2115", "Austria": "2128", "Azerbaijan": "2116", "Bahamas": "2117", "Bahrain": "2118", "Bangladesh": "2119", "Barbados": "2120", "Belarus": "2121", "Belgium": "2122", "Belize": "2123", "Benin": "2124", "Bermuda": "2125", "Bhutan": "2126", "Bolivia": "2127", "Bonaire": "2101", "Bosnia and Herzegovina": "2114", "Botswana": "2100", "Bouvet Island": "2084", "Brazil": "2072", "Brunei Darussalam": "2073", "Bulgaria": "2074", "Burkina Faso": "2075", "Burundi": "2076", "Cambodia": "2077", "Cameroon": "2078", "Canada": "2079", "Cape Verde": "2080", "Cayman Islands": "2081", "Central African Republic": "2082", "Chad": "2083", "Chile": "2085", "China": "2098", "Christmas Island": "2086", "Cocos Islands": "2087", "Colombia": "2088", "Comoros": "2089", "Congo": "2090", "Cook Islands": "2091", "Costa Rica": "2092", "Côte d'Ivoire": "2093", "Croatia": "2094", "Cuba": "2095", "Curaçao": "2096", "Cyprus": "2097", "Czech Republic": "2099", "Denmark": "2129", "Djibouti": "2130", "Dominica": "2131", "Dominican Republic": "2162", "Ecuador": "2163", "Egypt": "2164", "El Salvador": "2165", "Equatorial Guinea": "2166", "Eritrea": "2167", "Estonia": "2168", "Ethiopia": "2169", "Falkland Islands (Malvinas)": "2170", "Faroe Islands": "2171", "Fiji": "2172", "Finland": "2173", "France": "2174", "French Guiana": "2175", "French Polynesia": "2176", "Gabon": "2177", "Gambia": "2178", "Georgia": "2179", "Germany": "2180", "Ghana": "2181", "Gibraltar": "2182", "Greece": "2183", "Greenland": "2184", "Grenada": "2185", "Guadeloupe": "2186", "Guam": "2187", "Guatemala": "2188", "Guernsey": "2161", "Guinea": "2160", "Guinea-Bissau": "2159", "Guyana": "2144", "Haiti": "2132", "Honduras": "2133", "Hong Kong": "2134", "Hungary": "2135", "Iceland": "2136", "India": "2137", "Indonesia": "2138", "Iran": "2139", "Iraq": "2140", "Ireland": "2141", "Isle of Man": "2142", "Israel": "2143", "Italy": "2145", "Jamaica": "2158", "Japan": "2146", "Jersey": "2147", "Jordan": "2148", "Kazakhstan": "2149", "Kenya": "2150", "Kiribati": "2151", "Korea": "2152", "Kuwait": "2153", "Kyrgyzstan": "2154", "Lao People's Democratic Republic": "2155", "Latvia": "2156", "Lebanon": "2157", "Lesotho": "2071", "Liberia": "2189", "Libya": "2070", "Liechtenstein": "2068", "Lithuania": "1981", "Luxembourg": "1982", "Macao": "1983", "Macedonia": "1984", "Madagascar": "1985", "Malawi": "1986", "Malaysia": "1987", "Maldives": "1988", "Mali": "1989", "Malta": "1990", "Marshall Islands": "1991", "Martinique": "1992", "Mauritania": "1994", "Mauritius": "2007", "Mayotte": "1995", "Mexico": "1996", "Micronesia": "1997", "Moldova": "1998", "Monaco": "1999", "Mongolia": "2000", "Montenegro": "2001", "Montserrat": "2002", "Morocco": "2003", "Mozambique": "2004", "Myanmar": "2005", "Namibia": "2006", "Nauru": "1980", "Nepal": "1993", "Netherlands": "1979", "New Caledonia": "1963", "New Zealand": "1951", "Nicaragua": "1952", "Niger": "1953", "Nigeria": "1954", "Niue": "1955", "Norfolk Island": "1956", "Northern Mariana Islands": "1957", "Norway": "1958", "Oman": "1959", "Pakistan": "1960", "Palau": "1961", "Panama": "1962", "Papua New Guinea": "1964", "Paraguay": "1977", "Peru": "1965", "Philippines": "1966", "Pitcairn": "1967", "Poland": "1968", "Portugal": "1969", "Puerto Rico": "1970", "Qatar": "1971", "Réunion": "1972", "Romania": "1973", "Russian Federation": "1974", "Rwanda": "1975", "Saint Barthélemy": "1976", "Saint Helena": "1978", "Saint Kitts and Nevis": "2008", "Saint Lucia": "2009", "Saint Martin (French part)": "2010", "Saint Pierre and Miquelon": "2041", "Saint Vincent and the Grenadines": "2042", "Samoa": "2043", "San Marino": "2044", "Sao Tome and Principe": "2045", "Saudi Arabia": "2046", "Senegal": "2047", "Serbia": "2048", "Seychelles": "2049", "Sierra Leone": "2050", "Singapore": "2051", "Sint Maarten (Dutch part)": "2052", "Slovakia": "2053", "Slovenia": "2054", "Solomon Islands": "2055", "Somalia": "2056", "South Africa": "2057", "South Georgia and the South Sandwich Islands": "2058", "South Sudan": "2059", "Spain": "2060", "Sri Lanka": "2061", "Sudan": "2062", "Suriname": "2063", "Svalbard and Jan Mayen": "2064", "Swaziland": "2065", "Sweden": "2066", "Switzerland": "2067", "Syrian Arab Republic": "2040", "Taiwan": "2039", "Tajikistan": "2038", "Tanzania": "2023", "Thailand": "2011", "Timor-Leste": "2012", "Togo": "2013", "Tokelau": "2014", "Tonga": "2015", "Trinidad and Tobago": "2016", "Tunisia": "2017", "Turkey": "2018", "Turkmenistan": "2019", "Turks and Caicos Islands": "2020", "Tuvalu": "2021", "Uganda": "2022", "Ukraine": "2024", "United Arab Emirates": "2037", "United Kingdom": "2025", "United States": "2026", "United States Minor Outlying Islands": "2027", "Uruguay": "2028", "Uzbekistan": "2029", "Vanuatu": "2030", "Venezuela": "2031", "Vietnam": "2032", "Virgin Islands": "2033", "Wallis and Futuna": "2034", "Western Sahara": "2035", "Yemen": "2036", "Zambia": "2069", "Zimbabwe": "2190" };
+    if (dpaFormResponse.contact_form_id == "100958" && dpaFormResponse.status == "mail_sent" && dpaFormResponse.message == "Thank you for requesting a signed copy of the DPA.") {
+
+      var name = document.querySelector('#dpa-name').value;
+      var email = document.querySelector('#dpa-email').value;
+      var countryText = document.getElementById('dpa-country').value;
+      var countryValue = CountryList[countryText];
+      var company = document.querySelector('#dpa-company').value;
+      var role = document.querySelector('#dpa-role').value;
+      var documentBulkLink = 'https://app.boldsign.com/document/sign-bulk-links/?documentId=f22296e0-1182-4892-8f5d-616cb9b45574s_xHq6i';
+
+      var documentURL = documentBulkLink +
+        '&signer_signername=' + encodeURIComponent(name) +
+        '&signer_signeremail=' + encodeURIComponent(email) +
+        '&txtTitle=' + encodeURIComponent(role) +
+        '&txt_name=' + encodeURIComponent(name) +
+        '&txtCompany=' + encodeURIComponent(company) +
+        '&txtCountry=' + encodeURIComponent(countryText);
+
+      var description = `
+                <strong>DPA Request Submitted:</strong>
+                <p><br></p>
+                <div>
+                  <p><strong>Name:</strong> ${name}</p>
+                  <p><strong>Email:</strong> ${email}</p>
+                  <p><strong>Country:</strong> ${countryText}</p>
+                  <p><strong>Company:</strong> ${company}</p>
+                  <p><strong>Role:</strong> ${role}</p>
+                </div>
+                `;
+
+      var data = {
+        action: 'dpa_form_ajax_call',  // Action to trigger in the server
+        name: name, // Additional datas to send to the server 
+        email: email,
+        country: countryValue,
+        company: company,
+        role: role,
+        description: description,
+      };
+
+      jQuery.post(ajax_object.ajax_url, data, function (response) {
+        var responseOutput = response.replace(/["\\]/g, '');
+        jQuery('.wpcf7-response-output').html(responseOutput);
+
+        if (!responseOutput.includes("Something went wrong. Please try again after sometime.")) {
+          jQuery('#iframe-container #boldsign-pdf-iframe').attr('src', documentURL);
+          iframeFullBrowser();
+        }
+      });
+    }
+  }, false);
+} // DPA Page Form Request -- ENDS HERE
+jQuery(document).ready(function () {
+  // Plan ID's Declaration -- STARTS HERE
+  // Self Service - Self-Hosted -- STARTS HERE
+  const selfServiceHostBasic = 193;
+  const selfServiceHostBusiness = 164;
+  const selfServiceHostProfessional = 165;
+  // Self Service - Self-Hosted -- ENDS HERE
+
+  // Self Service - Managed Hosting -- STARTS HERE
+  const selfServiceManagedBasic = 168;
+  const selfServiceManagedBusiness = 169;
+  const selfServiceManagedProfessional = 170;
+  const selfServiceManagedEnterprise = 171;
+  // Self Service - Managed Hosting -- ENDS HERE
+
+  // Embedded BI - Self-Hosted -- STARTS HERE
+  const embeddedHostBasic = 194;
+  const embeddedHostBusiness = 175;
+  const embeddedHostProfessional = 176;
+  // Embedded BI - Self-Hosted -- ENDS HERE
+
+  // Embedded BI - Managed Hosting -- STARTS HERE
+  const embeddedManagedBasic = 179;
+  const embeddedManagedBusiness = 180;
+  const embeddedManagedProfessional = 181;
+  const embeddedManagedEnterprise = 182;
+  // Embedded BI - Managed Hosting -- ENDS HERE
+
+  // Embedded BI - Self-Hosting & Redistribution -- STARTS HERE
+  const embeddedRedistributionPlus = 185;
+  // Embedded BI - Self-Hosting & Redistribution -- ENDS HERE
+  // Plan ID's Declaration -- ENDS HERE
+
+  if (location.href.includes('#cost-calculator')) {
+    jQuery("html, body").animate({ scrollTop: jQuery('#cost-calculator').position().top + 100 }, 400);
+  }
+
+  // jQuery('#Free_trial_button').click(function(event){
+  //     event.preventDefault();
+  //     jQuery("html, body").animate({ scrollTop: jQuery('#cost-calculator').position().top - 100 }, 400);
+  // });
+  //Pricing page cost calculator js code Starts Here
+  var myInterval = setInterval(function () {
+    if (jQuery('.payment-methods').length > 0) {
+
+      // Bold ID API for Opportunity Creation URL declaration -- STARTS HERE
+      const boldIDBaseApi = "https://app.boldid.net/reporting/embedded/register?plan=";
+      // const leadParameters = jQuery('#Free_trial_button a').attr('href').split('&evaluation=v2')[1];
+      const leadParameters = pricingParameterAppendfunction();
+      const urlParamenters = "&evaluation=v2" + leadParameters;
+      // Bold ID API for Opportunity Creation URL declaration -- ENDS HERE
+
+      // Self Service Try Free Button - Plan ID Add -- Starts HERE
+      const selfTryFreeBtn = '<div id="self-service-try-free-btn"><a href="" target="_blank">Try for free</a></div>';
+      jQuery('#self-service-reports-tab .payment-methods').prepend(selfTryFreeBtn);
+
+      jQuery('#self-service-try-free-btn').on({ click: selfServiceTryFreefunction, mouseenter: selfServiceTryFreefunction });
+
+      function selfServiceTryFreefunction() {
+        var selfProduct = jQuery(".dropDown_field_id_29.sub-list-item .sub-item-value").text().trim();
+        var selfProvisioningType = jQuery(".dropDown_field_id_10.sub-list-item .sub-item-value").text().trim();
+        var selfConcurrentUsers = jQuery(".dropDown_field_id_32.sub-list-item .sub-item-value").text().trim();
+        var selfHost = jQuery(".dropDown_field_id_31.sub-list-item .sub-item-value").text().trim();
+        var selfNumberOfServers = jQuery(".range_field_id_33.sub-list-item .sub-item-value").text().trim();
+        var selfNumberOfCluster = jQuery(".range_field_id_34.sub-list-item .sub-item-value").text().trim();
+        var selfNumberOfApplications = jQuery(".range_field_id_35.sub-list-item .sub-item-value").text().trim();
+
+        if (selfProduct == "Self-Service Reports") {
+          if (selfProvisioningType == "Managed Hosting") {
+            if (selfConcurrentUsers == "10") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceManagedBasic + urlParamenters);
+            } else if (selfConcurrentUsers == "50") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceManagedBusiness + urlParamenters);
+            } else if (selfConcurrentUsers == "100") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceManagedProfessional + urlParamenters);
+            } else if (selfConcurrentUsers == "200") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceManagedEnterprise + urlParamenters);
+            }
+          } else if (selfProvisioningType == "Self-Hosted") {
+            if (selfHost == "Server") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceHostBasic + urlParamenters + "&host=server&quantity=" + selfNumberOfServers);
+            } else if (selfHost == "Cluster") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceHostBusiness + urlParamenters + "&host=cluster&quantity=" + selfNumberOfCluster);
+            }
+            else if (selfHost == "Application") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + selfServiceHostProfessional + urlParamenters + "&host=application&quantity=" + selfNumberOfApplications);
+            }
+          }
+        }
+      };
+      // Self Service Try Free Button - Plan ID Add -- ENDS HERE
+
+      // Embbeded Try Free Button - Plan ID Add -- STARTS HERE
+      const embeddedTryFreeBtn = '<div id="embedded-try-free-btn"><a href="" target="_blank">Try for free</a></div>';
+      jQuery('#embedded-reports-tab .payment-methods').prepend(embeddedTryFreeBtn);
+
+      jQuery('#embedded-try-free-btn').on({ click: embeddedTryFreefunction, mouseenter: embeddedTryFreefunction });
+
+      function embeddedTryFreefunction() {
+        var embeddedProduct = jQuery(".dropDown_field_id_2.sub-list-item .sub-item-value").text().trim();
+        var embeddedProvisioningType = jQuery(".dropDown_field_id_3.sub-list-item .sub-item-value").text().trim();
+        var embeddedConcurrentUsers = jQuery(".dropDown_field_id_4.sub-list-item .sub-item-value").text().trim();
+        var embeddedHost = jQuery(".dropDown_field_id_1.sub-list-item .sub-item-value").text().trim();
+        var embeddedNumberOfServers = jQuery(".range_field_id_13.sub-list-item .sub-item-value").text().trim();
+        var embeddedNumberOfCluster = jQuery(".range_field_id_15.sub-list-item .sub-item-value").text().trim();
+        var embeddedNumberOfApplications = jQuery(".range_field_id_16.sub-list-item .sub-item-value").text().trim();
+
+        if (embeddedProduct == "Embedded Reports") {
+          if (embeddedProvisioningType == "Managed Hosting") {
+            if (embeddedConcurrentUsers == "10") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedManagedBasic + urlParamenters);
+            } else if (embeddedConcurrentUsers == "50") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedManagedBusiness + urlParamenters);
+            } else if (embeddedConcurrentUsers == "100") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedManagedProfessional + urlParamenters);
+            } else if (embeddedConcurrentUsers == "200") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedManagedEnterprise + urlParamenters);
+            }
+          } else if (embeddedProvisioningType == "Self-Hosted") {
+            if (embeddedHost == "Server") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedHostBasic + urlParamenters + "&host=server&quantity=" + embeddedNumberOfServers);
+            } else if (embeddedHost == "Cluster") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedHostBusiness + urlParamenters + "&host=cluster&quantity=" + embeddedNumberOfCluster);
+            } else if (embeddedHost == "Application") {
+              jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedHostProfessional + urlParamenters + "&host=application&quantity=" + embeddedNumberOfApplications);
+            }
+          } else if (embeddedProvisioningType == "Self-Hosting & Redistribution") {
+            jQuery(this).find('a').attr("href", boldIDBaseApi + embeddedRedistributionPlus + urlParamenters + "&host=application&quantity=" + embeddedNumberOfApplications);
+          }
+        }
+      };
+      // Embbeded Try Free Button - Plan ID Add -- ENDS HERE
+
+      // Info add in right side Calculator -- STARTS HERE
+      jQuery(".range_field_id_13.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on a single server instance"></i>');
+      jQuery(".range_field_id_33.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on a single server instance"></i>');
+      jQuery(".dropDown_field_id_20.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on a single server instance"></i>');
+      jQuery(".dropDown_field_id_24.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on a single server instance"></i>');
+      jQuery(".range_field_id_15.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on one K8s or equivalent cluster"></i>');
+      jQuery(".range_field_id_34.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on one K8s or equivalent cluster"></i>');
+      jQuery(".dropDown_field_id_6.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on one K8s or equivalent cluster"></i>');
+      jQuery(".dropDown_field_id_25.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use on one K8s or equivalent cluster"></i>');
+      jQuery(".range_field_id_16.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use for one named application"></i>');
+      jQuery(".range_field_id_35.sub-list-item .sub-item-title").append('<i class="fas fa-info-circle" title="Use for one named application"></i>');
+      // Info add in right side Calculator -- ENDS HERE
+
+      clearInterval(myInterval);
+    }
+  }, 1000);
+});
+//Pricing page cost calculator js code Ends Here
+
+// Partner Form Request -- STARTS HERE
+jQuery(document).ready(function () {
+  if (location.pathname.includes('/partners')) {
+    document.addEventListener('wpcf7mailsent', function (event) {
+      var partnerFormResponse = event.detail.apiResponse;
+      if (partnerFormResponse.contact_form_id == "101153" && partnerFormResponse.status == "mail_sent" && partnerFormResponse.message == "Thank you for submitting your request. A member of our partnership team will be in touch soon.") {
+        var name = document.querySelector('#partner-name').value;
+        var email = document.querySelector('#partner-email').value;
+        var phone = document.querySelector('#partner-phone').value;
+        var company = document.querySelector('#patner-company').value;
+        var companyUrl = document.querySelector('#partner-company-url').value;
+        var message = document.querySelector('#partner-message').value;
+        var description = "<strong>Bold Reports System Integrator Partner Request Submitted: </strong><div><br></p><p>Name : " + name + "</p><p>Email : " + email + "</p><p>Phone : " + phone + "</p><p>Company : " + company + "</p><p>Company URL : " + companyUrl + "</p><p>Message : " + message + "</p>";
+
+        var data = {
+          action: 'partner_form_ajax_call',  // Action to trigger in the server
+          name: name, // Additional datas to send to the server 
+          email: email,
+          company: company,
+          description: description,
+        };
+        jQuery.post(ajax_object.ajax_url, data, function (response) {
+          var responseOutput = response.replace(/["\\]/g, '');
+          jQuery('.wpcf7-response-output').html(responseOutput);
+        });
+      }
+    }, false);
+  }
+}); // Partner Form Request -- ENDS HERE
+
+jQuery(document).ready(function () {
+	// _gl parameter remove for all links except same domain -- STARTS HERE
+	jQuery('a').on('click mouseenter contextmenu', (event) => {
+		let href = jQuery(event.currentTarget).attr('href');
+		if (href != undefined) {
+			if (!(href.indexOf(location.origin) == 0 || href.indexOf("/") == 0 || href.indexOf("#") == 0)) {
+				let modifiedHref = href.replace(/\&_gl=[^#]*/, ''); // Remove the specific _gl query parameter
+				jQuery(event.currentTarget).attr('href', modifiedHref);
+			}
+		}
+	}); // _gl parameter remove for all links except same domain -- ENDS HERE
+});
+

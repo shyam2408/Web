@@ -1,0 +1,26 @@
+
+this.bcSettings = this.bcSettings || {};
+this.bcSettings = {"widgetId":"21b94c00-dfc0-4143-bdca-c3ec15c46f17","toJid":"agent_4@c999e160-c285-4d6c-bb55-8469d8857c68","api":"https://support.boldreports.com/","chatServer":"wss://chat-server.bolddesk.com/ws","language":"","availableLanguage":[],"brandName":"Bold Reports","brandOptionId":26,"notificationAudioURL":"https://storage.googleapis.com/cdn-bolddesk/chat/asset/chat_notification.mp3","isKbEnabled":false,"satisfactionFeedback":null,"satisfactionSurveySetting":null,"version":"1.0"};
+this.bcSettings.language = 'en-US';
+(function () {
+let cc = document.body.appendChild(Object.assign(document.createElement('div'), {id: 'boldchat-host'})).attachShadow({mode: 'open'}).appendChild(Object.assign(document.createElement('div'), {id: 'boldchat-container'}));
+function le(t,o) {cc.appendChild(Object.assign(document.createElement(t), o));}
+function lfs() {document.head.appendChild(Object.assign(document.createElement('link'), {rel: 'stylesheet', type: 'text/css', href:'https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/font-icon.css'}));}
+const sy = ["https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/form.css", "https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/bold-chat-widget.css", "https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/light-theme-definition.css"];
+let i = 0, j = 0;
+function osl() { i++;
+(i === sy.length)&&function () {
+const osftl = ["https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/uploader.js", "https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/form.js"];
+osftl.forEach((src) => {le('script',{ type: 'text/javascript', src, onload:osfl })});
+if(osftl.length == 0){
+const sl = ["https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/emoji-picker.js", "https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/bold-chat-widget.js"];
+sl.forEach((src) => {le('script',{ type: 'text/javascript', defer: true, src })});}}()}
+const osftl = ["https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/uploader.js", "https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/form.js"];
+function osfl() { j++;
+(j === osftl.length)&&function () {
+const ls = ["https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/emoji-picker.js", "https://storage.googleapis.com/cdn-bolddesk/chat/widget/static/y630tblg94xkamjacicl/bold-chat-widget.js"];
+ls.forEach((src) => {le('script',{ type: 'text/javascript', defer: true, src  })});}()}
+lfs();
+sy.forEach((s) => {le('link', { rel: 'stylesheet', type: 'text/css', href: s, onload:osl })});
+le('style', { innerHTML : `#boldchat-container {${Object.entries(JSON.parse('{"--brand-25":"#e7eaf9","--brand-50":"#e2e6f8","--brand-100":"#dadff6","--brand-200":"#c2c9f0","--brand-300":"#a9b4ea","--brand-400":"#8997e1","--brand-500":"#6074d7","--brand-600":"#283c9f","--brand-700":"#24368f","--brand-800":"#1c296e","--brand-900":"#16225a","--brand-950":"#0f173d","--actioncolor-25":"#e7eaf9","--actioncolor-50":"#e2e6f8","--actioncolor-100":"#dadff6","--actioncolor-200":"#c2c9f0","--actioncolor-300":"#a9b4ea","--actioncolor-400":"#8997e1","--actioncolor-500":"#6074d7","--actioncolor-600":"#283c9f","--actioncolor-700":"#24368f","--actioncolor-800":"#1c296e","--actioncolor-900":"#16225a","--actioncolor-950":"#0f173d","--color-bc-text-primary-on-brand":"#ffffff","--color-bc-actioncolor-primary-fg":"#ffffff"}')).map(cc => `${cc[0]}: ${cc[1]}`).join('; ')}};` });
+})();

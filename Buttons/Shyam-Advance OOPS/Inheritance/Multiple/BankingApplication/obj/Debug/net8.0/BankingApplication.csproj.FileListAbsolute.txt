@@ -1,0 +1,14 @@
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\bin\Debug\net8.0\BankingApplication.exe
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\bin\Debug\net8.0\BankingApplication.deps.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\bin\Debug\net8.0\BankingApplication.runtimeconfig.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\bin\Debug\net8.0\BankingApplication.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\bin\Debug\net8.0\BankingApplication.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.AssemblyInfoInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.AssemblyInfo.cs
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.csproj.CoreCompileInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\refint\BankingApplication.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\BankingApplication.genruntimeconfig.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Multiple\BankingApplication\obj\Debug\net8.0\ref\BankingApplication.dll

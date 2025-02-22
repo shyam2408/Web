@@ -1,0 +1,607 @@
+// define the domain, subdomain and external url.
+jQuery(document).ready(function () {
+    var domain = "";
+    var subdomain = ".boldreports.com";
+    var expriehours = 1;//  one day 24hrs.
+    var modificationurl = "";
+    if (window.location.host == "staging.boldreports.com") {
+        domain = "staging.boldreports.com";
+        modificationurl = "https://dev-app.boldid.net/";
+    }
+    else {
+        domain = "www.boldreports.com";
+        modificationurl = "https://app.boldid.net/";
+    }
+     var internal_domains = {
+         "https://www.syncfusion.com": "Syncfusion",
+         "https://www.boldbi.com": "Bold BI",
+     }
+    // get the URL params
+    var appendQueryParam = "";
+    const fidUrlParam = (name) => {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href.replace(/%20/g, ""));
+        if (results == null) {
+            return null;
+        }
+        return results[1];
+    }
+    //get the lead source.
+    const leadSource = () => {
+        var leadSourceValue = "";
+        var queryParam = ["utm_campaign","gclid"];
+        var storedleadSourceValue = localStorage.getItem('lead_source');
+		if(storedleadSourceValue == "" || storedleadSourceValue == null)
+        {
+			for (let source of queryParam) {
+				switch (source) {
+					case "utm_campaign":
+						leadSourceValue = fidUrlParam(source);
+						break;
+					case "gclid":
+						var value = fidUrlParam(source);
+						if (value != null && value.length > 0) {
+							leadSourceValue = value;
+						}
+						break;
+				}
+				if (leadSourceValue != "" && leadSourceValue != null) {
+					return leadSourceValue;
+				}
+			}
+		}
+        if (leadSourceValue == "" || leadSourceValue == null) {
+            if (referralOrginUrl() != null && referralOrginUrl().toString().indexOf(domain) === -1 && referralOrginUrl().toString().indexOf(subdomain) === -1) {
+                var urlformat = referralOrginUrl().toString().split("/");
+                leadSourceValue =  urlformat[2];
+            }
+            else {
+                 var urlformat = window.location.href.toString().split("/");
+                leadSourceValue = urlformat[2];
+            }
+        }
+        return leadSourceValue;
+    }
+// Function to extract utm_campaign parameter or derive from referrer/hostname
+const opportunitySource = () => {
+    const urlParams = new URLSearchParams(window.location.href);
+    let opportunitysource = urlParams.get('utm_campaign');
+
+    if (opportunitysource) {
+        return opportunitysource;
+    } else {
+        const referrer = document.referrer;
+        if (!referrer || referrer === "" || referrer === undefined) {
+            opportunitysource = document.location.hostname;
+        } else {
+            const referrerURL = new URL(referrer);
+            opportunitysource = referrerURL.hostname;
+        }
+    }
+
+    return opportunitysource; // Return the value of opportunitysource outside the if-else block.
+};
+	
+	//Get the Opportunity Category value
+const opportunityCategory = () => {
+//     const urlParams = new URLSearchParams(window.location.search);
+//     let opportunityCategory = urlParams.get('utm_source');
+	let opportunityCategory = fidUrlParam('utm_source');
+
+    if (opportunityCategory) {
+        return opportunityCategory;
+    } else {
+        const referrer = document.referrer;
+
+        if (referrer == null || referrer === "" || referrer === undefined) {
+            if (fidUrlParam("gclid") != null && fidUrlParam("gclid") != "") {
+                opportunityCategory = "Google_Ads";
+            } else {
+                opportunityCategory = "Site_Visitors"; // Default value if no referrer and no gclid parameter
+            }
+        } else {
+            if (referrer.includes("https://medium.com/")) {
+                opportunityCategory = "medium";
+            } else if (referrer.includes("https://www.nuget.org/")) {
+                opportunityCategory = "nuget";
+            } else if (referrer.includes("https://www.npmjs.com/")) {
+                opportunityCategory = "npm";
+            } else if (referrer.includes("https://github.com/")) {
+                opportunityCategory = "github";
+            } else if (referrer.includes("https://l.facebook.com/")) {
+    			opportunityCategory = "facebook";
+			}
+			else if (referrer.includes("https://www.linkedin.com/")) {
+    			opportunityCategory = "linkedin";
+			}
+			else if (referrer.includes("https://twitter.com/")) {
+    			opportunityCategory = "twitter";
+			}
+			else {
+                opportunityCategory = "Site_Visitors"; // Default value if referrer doesn't match any known sources.
+            }
+        }
+    }
+
+    return opportunityCategory; // Return the value of opportunityCategory outside the if-else block.
+}
+	
+	// get the lead category value
+    const leadcategory = () => {
+		if (localStorage.getItem("referralurl") !==null || localStorage.getItem("referralurl") !== "" )
+			{
+				var referralorginurl = localStorage.getItem("referralurl");
+			}
+		else{
+			var referralorginurl = document.referrer !== "" ? document.referrer : document.location.href;
+		}
+		var storedLeadcategoryvalue = localStorage.getItem("lead_category");
+		var leadcategoryvalue = "";
+		if(storedLeadcategoryvalue == "" || storedLeadcategoryvalue == null)
+		{
+			leadcategoryvalue = fidUrlParam('utm_source');
+		}
+        if (leadcategoryvalue == "" || leadcategoryvalue == null) {
+            if (fidUrlParam("gclid") != null && fidUrlParam("gclid") != "") {
+                leadcategoryvalue = "Google_Ads";
+            } 
+            else if (referralorginurl.includes("https://medium.com/")) {
+                leadcategoryvalue = "medium";
+            }
+            else if (referralorginurl.includes("https://www.nuget.org/")) {
+                leadcategoryvalue = "nuget";
+            }
+            else if (referralorginurl.includes("https://www.npmjs.com/")) {
+                leadcategoryvalue = "npm";
+            }
+			else if (referralorginurl.includes("https://github.com/")) {
+                leadcategoryvalue = "github";
+            }
+			else if (referralorginurl.includes("https://l.facebook.com/")) {
+    			leadcategoryvalue = "facebook";
+			}
+			else if (referralorginurl.includes("https://www.linkedin.com/")) {
+    			leadcategoryvalue = "linkedin";
+			}
+			else if (referralorginurl.includes("https://twitter.com/")) {
+    			leadcategoryvalue = "twitter";
+			}
+            else {
+                leadcategoryvalue = "Site_Visitors";
+            }
+        }
+        return leadcategoryvalue;
+    }
+
+    // get site referral orgin url
+    const referralOrginUrl = () => {
+        var referralorginurl = document.referrer != "" ? document.referrer : document.location.href;
+         if (localStorage.getItem("referralurl") != null) {
+                 return localStorage.getItem("referralurl");
+         }
+        return referralorginurl;
+    }
+
+    // get the landingpageoriginurl and secondreferorgin.
+    const landingpage_url = () => {
+        var landingpageoriginurl = "";
+        if (localStorage.getItem("landingpageurl") == null) {
+            landingpageoriginurl = document.location.href;
+            localStorage.setItem("landingpageurl", landingpageoriginurl); // Store initial URL in localStorage
+        } else {
+            landingpageoriginurl = localStorage.getItem("landingpageurl");
+    
+            var currentUrl = document.location.href;
+    
+            // Check if the current URL is different from the stored landingpageurl
+            if (landingpageoriginurl !== currentUrl) {
+                // Update landingpageurl in localStorage with the new URL
+                localStorage.setItem("landingpageurl", currentUrl);
+                landingpageoriginurl = currentUrl;
+            }
+            else if (localStorage.getItem("landingpageurl") == null) {
+                landingpageoriginurl = document.location.href;
+                if (landingpageoriginurl.toString().indexOf(domain) !== -1) {
+                    landingpageoriginurl = localStorage.getItem("landingpageurl");
+                }
+                else if (landingpageoriginurl.toString().indexOf(subdomain) !== -1) {
+                    landingpageoriginurl = document.location.href;
+                }
+                else if (landingpageoriginurl.toString().indexOf(".boldid.net") !== -1) {
+                    landingpageoriginurl = document.location.href;
+                }
+                else {
+                    landingpageoriginurl = localStorage.getItem("landingpageurl");
+                }
+            }
+        }
+
+        if (landingpageoriginurl == "") {
+            landingpageoriginurl = document.location.href;
+        }
+        if (landingpageoriginurl.toString().indexOf("?") !== -1) {
+            var remove_query_param = landingpageoriginurl.toString().split("?");
+            landingpageoriginurl = remove_query_param[0];
+        }
+        return {
+            landingpageoriginurl: landingpageoriginurl
+        }
+    }
+
+	// get the secondaryreferralorginurl
+   const second_referralorgin = () => {
+       var secondreferralorginurl = "";
+       if (localStorage.getItem("secondaryreferralurl") == null) {
+           secondreferralorginurl = document.location.href;
+       }
+       else if (localStorage.getItem("secondaryreferralurl") != null) {
+           secondreferralorginurl = document.referrer;
+           if (secondreferralorginurl.toString().indexOf(domain) !== -1) {
+               secondreferralorginurl = localStorage.getItem("secondaryreferralurl");
+           }
+           else {
+               secondreferralorginurl = document.referrer;
+           }
+       }
+
+       if (secondreferralorginurl.toString().indexOf("?") !== -1) {
+           var remove_query_param = secondreferralorginurl.toString().split("?");
+           secondreferralorginurl = remove_query_param[0];
+       }
+       return {
+           secondreferralorginUrl: secondreferralorginurl
+       }
+   }
+
+	// Internal tracking values for lead source, lead categories, refer origin URL and landing page URLs
+    const internalLeadSourceMethod = () => {
+        var leadSourceValue = "";
+        if (leadSourceValue == "" || leadSourceValue == null) {
+            if (internalreferralOrginUrl() != null && internalreferralOrginUrl().toString().indexOf(domain) === -1 && internalreferralOrginUrl().toString().indexOf(subdomain) === -1) {
+                var urlformat = internalreferralOrginUrl().toString().split("/");
+                leadSourceValue =  urlformat[2];
+            }
+            else {
+                var urlformat = window.location.href.toString().split("/");
+                leadSourceValue = urlformat[2];
+            }
+        }
+        return leadSourceValue;
+    }
+
+	const internalreferralOrginUrl = () => {
+        var referralorginurl = "";
+		referralorginurl = document.referrer != "" ? document.referrer : document.location.href;
+		return referralorginurl;
+	}
+
+	const updateInternalLeadSource = () => {
+		var internalLeadSource = localStorage.getItem('internal_tracking_lead_source') || '';
+		const leadSourceValue = internalLeadSourceMethod();
+		const referralURLValue = internalreferralOrginUrl();
+		const leadSources = internalLeadSource.split(',').map(source => source.trim());
+        const lastLeadSourceValue = leadSources.length > 0 ? leadSources[leadSources.length - 1] : null;
+        if (lastLeadSourceValue !== leadSourceValue) {
+		if (leadSourceValue !== 'www.boldreports.com') {
+			if (leadSources.length > 10) {
+				leadSources.shift();
+			}
+            if(leadSourceValue == 'www.nuget.org' && lastLeadSourceValue == 'boldreports')
+			{
+
+			}
+            else
+            {
+				leadSources.push(leadSourceValue);
+			}
+			internalLeadSource = leadSources.slice(-10).join(', ').replace(/^, /, '');
+		}
+		else {
+			const url = new URL(referralURLValue);
+			const queryParams = url.searchParams;
+			if (leadSourceValue == 'www.boldreports.com' && queryParams.has('utm_source') && queryParams.get('utm_source') === 'nuget') {
+				if (leadSources.length > 10) {
+					leadSources.shift();
+				}
+			    internalLeadSource = 'boldreports';
+				if (lastLeadSourceValue !== internalLeadSource && lastLeadSourceValue !== 'www.nuget.org') {
+					leadSources.push(internalLeadSource);
+				}
+				internalLeadSource = leadSources.slice(-10).join(', ').replace(/^, /, '');
+			}
+		  }
+		}
+
+		return internalLeadSource;
+	}
+
+	const updateInternalReferralURL = () => {
+		var internalReferralURL = localStorage.getItem('internal_tracking_referralurl') || '';
+		const referralURLValue = internalreferralOrginUrl();
+		const referralURLS = internalReferralURL.split(',').map(source => source.trim());
+        const lastReferOriginValue = referralURLS.length > 0 ? referralURLS[referralURLS.length - 1] : null;
+        if (lastReferOriginValue !== referralURLValue) {
+		if (!referralURLValue.startsWith('https://www.boldreports.com/')) {
+			if (referralURLS.length > 10) {
+				referralURLS.shift();
+			}
+			referralURLS.push(referralURLValue);
+			internalReferralURL = referralURLS.slice(-10).join(', ').replace(/^, /, '');
+		}
+		else {
+			const url = new URL(referralURLValue);
+			const queryParams = url.searchParams;
+			if (referralURLValue.startsWith('https://www.boldreports.com/') && queryParams.has('utm_source') && queryParams.get('utm_source') === 'nuget') {
+				if (referralURLS.length > 10) {
+					referralURLS.shift();
+				}
+			    internalReferralURL = 'https://www.nuget.org/';
+				if (lastReferOriginValue !== internalReferralURL) {
+						referralURLS.push(internalReferralURL);
+				}
+				internalReferralURL = referralURLS.slice(-10).join(', ').replace(/^, /, '');
+			} 
+		  }
+	   }
+		return internalReferralURL;
+	}
+
+    const internalLeadCategoryMethod = () => {
+		var referralorginurl = document.referrer !== "" ? document.referrer : document.location.href;
+        var leadcategoryvalue = fidUrlParam('utm_source');
+        if (leadcategoryvalue == "" || leadcategoryvalue == null) {
+            if (fidUrlParam("gclid") != null && fidUrlParam("gclid") != "") {
+                leadcategoryvalue = "Google_Ads";
+            } 
+            else if (referralorginurl.includes("https://medium.com/")) {
+                leadcategoryvalue = "medium";
+            }
+            else if (referralorginurl.includes("https://www.nuget.org/")) {
+                leadcategoryvalue = "nuget";
+            }
+            else if (referralorginurl.includes("https://www.npmjs.com/")) {
+                leadcategoryvalue = "npm";
+            }
+			else if (referralorginurl.includes("https://github.com/")) {
+                leadcategoryvalue = "github";
+            }
+            else {
+                leadcategoryvalue = "Site_Visitors";
+            }
+        }
+        return leadcategoryvalue;
+    }
+
+	const updateInternalLeadCategory = () => {
+		var internalLeadCategory = localStorage.getItem('internal_tracking_leadcategory') || '';
+		const leadCategoryValue = internalLeadCategoryMethod();
+		const leadCategories = internalLeadCategory.split(',').map(category => category.trim());
+       const lastCategory = leadCategories.length > 0 ? leadCategories[leadCategories.length - 1] : null;
+        
+        if (lastCategory !== leadCategoryValue) {
+		if (leadCategoryValue !== 'Site_Visitors') {
+			if (leadCategories.length > 10) {
+				leadCategories.shift();
+			}     
+			leadCategories.push(leadCategoryValue);
+			internalLeadCategory = leadCategories.slice(-10).join(', ').replace(/^, /, '');
+		}
+		}
+		return internalLeadCategory;
+	}
+
+	const updateInternalLandingPageURL = () => {
+		var internalLandingPageURL = localStorage.getItem('internal_tracking_landingpageurl') || '';
+		const internalLandingPageURLValue = landingpage_url().landingpageoriginurl;
+		const landingPageURLs = internalLandingPageURL.split(',').map(category => category.trim());
+		const lastStoredURL = landingPageURLs.length > 0 ? landingPageURLs[landingPageURLs.length - 1] : null;
+		if (lastStoredURL !== internalLandingPageURLValue) {
+					if (landingPageURLs.length > 10) {
+						landingPageURLs.shift();
+					}     
+					landingPageURLs.push(internalLandingPageURLValue);
+					internalLandingPageURL = landingPageURLs.slice(-10).join(', ').replace(/^, /, '');
+		}
+		return internalLandingPageURL;
+
+	}
+    //replace the unwanted string in url.
+    const replaceAll = (str, search, replacement) => {
+        return str.toString().split(search).join(replacement);
+    }
+    // get the gclid id.
+    const gclid = () => {
+        return fidUrlParam("gclid");
+    }
+	function getCookie(cookieName) {
+		var name = cookieName + "=";
+		var cookies = document.cookie.split(';');
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie = cookies[i];
+			while (cookie.charAt(0) == ' ')
+				cookie = cookie.substring(1);
+			if (cookie.indexOf(name) == 0)
+				return cookie.substring(name.length, cookie.length);
+		}
+		return "";
+	}
+    //set  the tracking value to loacl staorage.
+    const setlocalstorage = () => {
+        var lead_sourcevalue = "";
+        var lead_categoryvalue = "";
+        var gclidvalue = "";
+        var referralurlvalue = "";
+		var landingpageurlvalue ="";
+        var scoundaryreferralurlvalue ="";
+		var opportunitysourcevalue = "";
+        var opportunityCategoryValue = "";
+        localStorage.setItem("opportunitysource", opportunitySource());
+        var opportunitysourcevalue = localStorage.getItem("opportunitysource");
+        localStorage.setItem("opportunitycategory", opportunityCategory());
+        var opportunityCategoryValue = localStorage.getItem("opportunitycategory");
+        localStorage.setItem("internal_tracking_lead_source", updateInternalLeadSource());
+        localStorage.setItem("internal_tracking_referralurl", updateInternalReferralURL());
+        localStorage.setItem("internal_tracking_leadcategory", updateInternalLeadCategory());
+        localStorage.setItem("internal_tracking_landingpageurl", updateInternalLandingPageURL());
+        var uuidValue = getCookie('_uid');
+        if (localStorage.getItem("lead_source") == null || (localStorage.getItem("lead_source") != null && leadSource().toString().indexOf(domain) === -1)) {
+            localStorage.setItem("lead_source", leadSource());
+        }
+        if ((localStorage.getItem("referralurl") == null) || (localStorage.getItem("referralurl") != null && referralOrginUrl().toString().indexOf(subdomain) === -1)) {
+            localStorage.setItem("referralurl", referralOrginUrl());
+        }
+        if (localStorage.getItem("secondaryreferralurl") == null || (localStorage.getItem("secondaryreferralurl") != null && second_referralorgin().secondreferralorginUrl.toString().indexOf(subdomain) !== -1)) {
+          localStorage.setItem("secondaryreferralurl", second_referralorgin().secondreferralorginUrl);
+        }
+        if (localStorage.getItem("landingpageurl") == null || (localStorage.getItem("landingpageurl") != null && landingpage_url().landingpageoriginurl.toString().indexOf(subdomain) !== -1)) {
+            localStorage.setItem("landingpageurl", landingpage_url().landingpageoriginurl);
+        }
+		if (localStorage.getItem("lead_category") == null || (localStorage.getItem("lead_category") != null && leadcategory().toString() != "Site_Visitors")) {
+            localStorage.setItem("lead_category", leadcategory());
+        }
+        if (gclid() != null) {
+            localStorage.setItem("gclid", gclid());
+        }
+        if (localStorage.getItem("gclid") != null) {
+            gclidvalue = localStorage.getItem("gclid");
+        }
+        if (localStorage.getItem("lead_source") != null) {
+            lead_sourcevalue = localStorage.getItem("lead_source");
+        }
+        if (localStorage.getItem("lead_category") != null) {
+            lead_categoryvalue = localStorage.getItem("lead_category");
+        }
+        if (localStorage.getItem("referralurl") != null) {
+            referralurlvalue = localStorage.getItem("referralurl");
+        }
+		if(localStorage.getItem("landingpageurl") != null){
+            landingpageurlvalue = localStorage.getItem("landingpageurl");
+		   }
+        if(localStorage.getItem("secondaryreferralurl") != null){
+            scoundaryreferralurlvalue = localStorage.getItem("secondaryreferralurl");
+            }
+        appendQueryParam = "&leadsource=" + lead_sourcevalue + "&gclid=" + gclidvalue + "&referrerroriginurl=" + referralurlvalue + "&secondaryreferraloriginurl=" + scoundaryreferralurlvalue + "&landingpageurl=" + landingpageurlvalue + "&leadcategory=" + lead_categoryvalue + "&opportunitysource=" + opportunitysourcevalue + "&opportunitycategory=" + opportunityCategoryValue + "&uuid=" + uuidValue;
+		
+    }
+	window.pricingParameterAppendfunction = function () {
+      	return appendQueryParam;
+    };
+    // append the query string in registeration url
+    const append_query_string = () => {
+        //111 plan community license
+        var community_plan_links = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=111']");
+            jQuery.each(community_plan_links, function (key, value) {
+                this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Community_License";
+            });
+
+        //120 plan trial for standard
+        //for both plan 120, 121 and 126 secondary lead source is same
+        var trial_plan_links = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=128']");
+            jQuery.each(trial_plan_links, function (key, value) {
+                this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+            }); 
+ 
+        //121 plan trial
+        var plus_plan_link = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=121']");
+        jQuery.each(plus_plan_link, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+        
+        //126 plan trial for cloud
+        var cloud_plan_link = jQuery("a[href^='" + modificationurl + "reports/register?plan=126']");
+        jQuery.each(cloud_plan_link, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+        var cloud_annual_plan_link = jQuery("a[href^='" + modificationurl + "reports/register?plan=130']");
+        jQuery.each(cloud_annual_plan_link, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+        var standard_annual_plan_link = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=132']");
+        jQuery.each(standard_annual_plan_link, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+        var plus_annual_plan_link = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=134']");
+        jQuery.each(plus_annual_plan_link, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+		var standalone_plan_link = jQuery("a[href^='" + modificationurl + "reporting/designer/register?plan=195']");
+        jQuery.each(standalone_plan_link, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+		var pricing_page_plan_default = jQuery("a[href^='" + modificationurl + "register/reports/enterprise?evaluation=v2']");
+        jQuery.each(pricing_page_plan_default, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+		var pricing_page_plan_208 = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=208']");
+        jQuery.each(pricing_page_plan_208, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+
+		var pricing_page_plan_209 = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=209']");
+        jQuery.each(pricing_page_plan_209, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+
+		var pricing_page_plan_210 = jQuery("a[href^='" + modificationurl + "reporting/embedded/register?plan=210']");
+        jQuery.each(pricing_page_plan_210, function (key, value) {
+            this.href = value.href + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial";
+        });
+		// add parameters on trial free links (plan 194) common on static site.
+        var commonAncestor = jQuery("body"); // get common ancestor element
+
+        commonAncestor.on("mouseenter", "a[href^='" + modificationurl + "reporting/embedded/register?plan=194']", function () {
+            var link = jQuery(this);
+
+            // Check if parameters are already added
+            if (!link.data("parametersAdded")) {
+                // Add your parameters to the href
+                link.attr("href", link.attr("href") + appendQueryParam + "&secondaryleadsource=Bold_Reports_Trial&host=server&quantity=1");
+
+                // Set a flag to indicate that parameters have been added
+                link.data("parametersAdded", true);
+            }
+        });
+    }
+	
+    const append_request_demo_form_lead_details = () => {
+        if (localStorage.getItem("gclid") != null) {
+            jQuery('input[name="Gclid"]').val(localStorage.getItem("gclid"));
+        }
+        jQuery('input[name="ReferrerUrl"]').val(localStorage.referralurl);
+        jQuery('input[name="LandingPageUrl"]').val(localStorage.landingpageurl);
+        jQuery('input[name="LeadSource"]').val(localStorage.lead_source);
+      	jQuery('input[name="LeadCategory"]').val(localStorage.lead_category);
+		jQuery('input[name="PageURL"]').val(document.location.href);
+        jQuery('input[name="SecondaryReferralURL"]').val(window.location.href);
+    }
+    //check is internal site leadsource.
+    const internalleadsource = (url) => {
+        for (const [key, value] of Object.entries(internal_domains)) {
+            if (url.toString().indexOf(key) !== -1) {
+                return value;
+            }
+        }
+        return null;
+    }
+    //set exprie date to localstorage.
+    const storageExpriedate = () => {
+        var date = new Date();
+        date.setHours(date.getHours() + expriehours);
+        if (localStorage.getItem("localstorageexpriedate") == null) {
+            localStorage.setItem("localstorageexpriedate", date)
+        }
+        if (new Date(localStorage.getItem("localstorageexpriedate")) < new Date()) {
+            localStorage.removeItem("lead_source");
+            localStorage.removeItem("referralurl");
+            localStorage.removeItem("landingpageurl");
+            localStorage.removeItem("gclid");
+            localStorage.removeItem("localstorageexpriedate");
+           	localStorage.removeItem("lead_category");
+            localStorage.removeItem("secondaryreferralurl");
+        }
+    }
+    // call the function.
+    setlocalstorage();
+    append_query_string();
+    storageExpriedate();
+    append_request_demo_form_lead_details();
+});

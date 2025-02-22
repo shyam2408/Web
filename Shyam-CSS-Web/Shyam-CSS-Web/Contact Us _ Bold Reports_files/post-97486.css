@@ -1,0 +1,72 @@
+.elementor-97486 .elementor-element.elementor-element-1e242cf{margin-top:0px;margin-bottom:0px;padding:0px 0px 0px 0px;}.elementor-97486 .elementor-element.elementor-element-34646323 > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:0px;}.elementor-97486 .elementor-element.elementor-element-31766d23{text-align:left;}.elementor-97486 .elementor-element.elementor-element-31766d23 .elementor-heading-title{color:#283a5f;font-family:"futura-pt", Inter;font-size:18px;font-weight:normal;line-height:25px;}.elementor-97486 .elementor-element.elementor-element-31766d23 > .elementor-widget-container{margin:0px 0px 4px 0px;}.elementor-97486 .elementor-element.elementor-element-6c023164 .elementor-widget-container{color:#3c4d6f;font-size:16px;line-height:29px;}.elementor-97486 .elementor-element.elementor-element-6c023164 > .elementor-widget-container{margin:0px 0px 0px 0px;}.elementor-97486 .elementor-element.elementor-element-3d504b08{text-align:left;}.elementor-97486 .elementor-element.elementor-element-3d504b08 .elementor-heading-title{color:#334155;font-family:"futura-pt", Inter;font-size:18px;font-weight:400;line-height:25px;}.elementor-97486 .elementor-element.elementor-element-3d504b08 > .elementor-widget-container{margin:0px 0px 4px 0px;}.elementor-97486 .elementor-element.elementor-element-7cedb498 .elementor-widget-container{color:#828893;font-size:16px;line-height:29px;}.elementor-97486 .elementor-element.elementor-element-7cedb498 > .elementor-widget-container{margin:0px 0px 0px 0px;}.elementor-97486 .elementor-element.elementor-element-4acd1aac{--divider-border-style:solid;--divider-color:#E4E4E4;--divider-border-width:1px;}.elementor-97486 .elementor-element.elementor-element-4acd1aac .elementor-divider-separator{width:100%;}.elementor-97486 .elementor-element.elementor-element-4acd1aac .elementor-divider{padding-block-start:15px;padding-block-end:15px;}@media(min-width:768px){.elementor-97486 .elementor-element.elementor-element-40de3cf8{width:20%;}.elementor-97486 .elementor-element.elementor-element-34646323{width:80%;}}@media(max-width:1024px) and (min-width:768px){.elementor-97486 .elementor-element.elementor-element-40de3cf8{width:30%;}.elementor-97486 .elementor-element.elementor-element-34646323{width:70%;}}@media(max-width:1024px){.elementor-97486 .elementor-element.elementor-element-31766d23 .elementor-heading-title{font-size:16px;}.elementor-97486 .elementor-element.elementor-element-6c023164 .elementor-widget-container{font-size:14px;line-height:1.5em;}.elementor-97486 .elementor-element.elementor-element-3d504b08 .elementor-heading-title{font-size:16px;}.elementor-97486 .elementor-element.elementor-element-7cedb498 .elementor-widget-container{font-size:14px;line-height:1.5em;}}@media(max-width:767px){.elementor-97486 .elementor-element.elementor-element-31766d23 .elementor-heading-title{font-size:17px;}.elementor-97486 .elementor-element.elementor-element-6c023164 .elementor-widget-container{font-size:14px;line-height:1.5em;}.elementor-97486 .elementor-element.elementor-element-3d504b08 .elementor-heading-title{font-size:17px;}.elementor-97486 .elementor-element.elementor-element-7cedb498 .elementor-widget-container{font-size:14px;line-height:1.5em;}}/* Start custom CSS for theme-post-title, class: .elementor-element-31766d23 */.video-title h4{
+   cursor: pointer;
+   font-family: "CarosMedium", sans-serif !important;
+   display: inline-block;
+             }
+.video-title h4:hover{
+   color: #ff4800 !important;
+}/* End custom CSS */
+/* Start custom CSS for theme-post-excerpt, class: .elementor-element-6c023164 */.video-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .video-excerpt div{
+overflow: hidden; 
+text-overflow: ellipsis;
+ max-height: 58px;
+}
+ @media (max-width: 1024px) {
+  .video-excerpt div{
+    max-height: 42px;
+  }}
+}/* End custom CSS */
+/* Start custom CSS for section, class: .elementor-element-1e242cf */.individual-video-section > div{
+    padding: 0 !important;
+}
+.search-results div[data-elementor-type=loop]{
+    margin-left: -10px;
+}
+  @media (max-width: 767px) {
+ .search-results div[data-elementor-type=loop]{
+    margin-left: 0px;
+}
+  }/* End custom CSS */
+/* Start custom CSS for theme-post-title, class: .elementor-element-3d504b08 */.video-title h4{
+   cursor: pointer;
+   font-family: "CarosMedium", sans-serif !important;
+   display: inline-block;
+             }
+.video-title h4:hover{
+   color: #ff4800 !important;
+}/* End custom CSS */
+/* Start custom CSS for theme-post-excerpt, class: .elementor-element-7cedb498 */.video-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .video-excerpt div{
+overflow: hidden; 
+text-overflow: ellipsis;
+ max-height: 58px;
+}
+ @media (max-width: 1024px) {
+  .video-excerpt div{
+    max-height: 42px;
+  }}
+}/* End custom CSS */
+/* Start custom CSS */.img-video-container:hover{
+    opacity:0.8;
+}/* End custom CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'futura-pt';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: ;
+}
+/* End Custom Fonts CSS */

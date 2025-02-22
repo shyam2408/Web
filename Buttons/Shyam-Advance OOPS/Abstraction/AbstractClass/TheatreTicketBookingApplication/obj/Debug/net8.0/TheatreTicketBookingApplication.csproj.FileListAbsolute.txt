@@ -1,0 +1,14 @@
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\bin\Debug\net8.0\TheatreTicketBookingApplication.exe
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\bin\Debug\net8.0\TheatreTicketBookingApplication.deps.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\bin\Debug\net8.0\TheatreTicketBookingApplication.runtimeconfig.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\bin\Debug\net8.0\TheatreTicketBookingApplication.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\bin\Debug\net8.0\TheatreTicketBookingApplication.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.AssemblyInfoInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.AssemblyInfo.cs
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.csproj.CoreCompileInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\refint\TheatreTicketBookingApplication.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\TheatreTicketBookingApplication.genruntimeconfig.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\AbstractClass\TheatreTicketBookingApplication\obj\Debug\net8.0\ref\TheatreTicketBookingApplication.dll

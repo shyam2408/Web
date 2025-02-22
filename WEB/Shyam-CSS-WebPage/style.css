@@ -1,0 +1,375 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+
+* {
+  text-decoration: none;
+}
+
+nav {
+  background-color: black;
+}
+
+.navdiv {
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo a {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+li {
+  margin-right: 25px;
+  list-style: none;
+  display: inline-block;
+}
+
+li a {
+  padding: 8px;
+  font-weight: bold;
+  font-size: 13px;
+}
+#book button{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 4px;
+  padding: 6px;
+  border-color: white;
+}
+#book button:hover{
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+#free button{
+  background-color: rgb(9, 100, 228);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+}
+#free button:hover{
+  background-color: rgb(53, 136, 251);
+}
+
+
+
+
+.banner-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 200px;
+}
+
+#main-banner .banner-content h1 {
+  font-size: 3em;
+}
+
+#main-banner .banner-content p {
+  font-size: 16px;
+}
+
+#main-banner button {
+  background-color: #0265c8;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#main-banner button:hover {
+  background-color: #0266ca;
+}
+
+#main-banner .sub-banner{
+  padding: 20px 0;
+  text-align: center;
+  justify-content: center;
+  font-size: 22px;
+  color: gray;
+}
+
+.join-us{
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+  background-color: #1600dd;
+  padding: 20px 0;
+}
+.join-us div{
+  align-items: center;
+  text-align: center;
+}
+
+
+.mission{
+  padding: 5% 200px;
+  display: flex;
+  justify-content: center;
+}
+.mission p{
+  color: #333;
+  text-align: left;
+  font-size: 20px;
+  line-height: 30px;
+}
+.mission img{
+  height: 500px;
+  width: 700px;
+  align-items: center;
+}
+.mission h1{
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+
+.values #grid{
+  padding: 50px 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 25px;
+  line-height: 1.5;
+  font-size: 18px;
+}
+.values #grid h1{
+  padding: 20px 0;
+}
+.values #heading{
+  font-size: x-large;
+  padding: 0 200px;
+
+}
+
+#current-openings{
+  padding: 50px 0;
+  background-color: #1a03e7de;
+}
+#current-openings .grid{
+  padding: 50px 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 25px;
+  line-height: 1.5;
+  font-size: 18px;
+}
+#current-openings .grid h1{
+  padding: 20px 0;
+}
+#current-openings .grid .card{
+  padding: 25px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+#current-openings .head{
+  font-size: x-large;
+  padding: 0 200px;
+  color: white;
+  text-align: center;
+}
+#Designations{
+  padding: 50px 0;
+  text-align: center;
+}
+#Designations .type{
+  display: flex;
+  justify-content: center;
+}
+#Designations .type h3{
+  padding: 30px 30px;
+  
+}
+#Designations .type h3 :hover{
+  border-bottom: #003ef9 solid 3px;
+  color: #2e00fc;
+}
+
+#Designations .grid{
+  padding: 50px 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 25px;
+  line-height: 1.5;
+  font-size: 18px;
+  border-bottom: 2px solid black;
+}
+
+#Designations .grid h1{
+padding: 15px 0;
+}
+#Designations .grid .card{
+  padding: 25px;
+  text-align: left;
+  border: solid 2px rgb(121, 121, 121);
+  border-radius: 20px;
+  background-color: white;
+  
+}
+#Designations .grid .card:hover{
+  border: solid 2px rgb(10, 77, 233);
+}
+
+
+#Recruitment-process{
+  padding: 50px 200px;;
+  text-align: center;
+}
+#Recruitment-process .head{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-bottom: 5%;
+}
+#Recruitment-process .grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 25px;
+  line-height: 1.5;
+  font-size: 18px;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+  
+}
+
+#Recruitment-process .grid i{
+text-align: right;
+font-weight: 400;
+
+}
+.box
+{
+  border-radius: 30px;
+  padding: 10px;
+  row-gap: 10px;
+  margin-bottom: 10px;
+  width: 500px;
+}
+.life
+{
+  margin-left: 100px;
+  padding: 50px;
+  gap: 20px;
+}
+.life img
+{
+  height: 1000px;
+  width: 1030px;
+}
+.key
+{
+  background-color: rgb(216, 226, 239);
+  padding: 40px;
+  
+}
+.keyhead
+{
+  text-align: center;
+}
+.keygrid
+{
+  padding: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 50px;
+  column-gap: 50px;
+}
+.kay
+{
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+}
+.awards
+{
+  text-align: center;
+  margin-top: 5%;
+}
+.awards img
+{
+  height: 200px;
+  width: 800px;
+}
+.awards h1
+{
+  font-size: xx-large;
+}
+.main-footer
+{
+  padding: 50px 50px 50px 50px;
+  color: #333333;
+  background-color: #EBEFF5;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr  ;
+  border-bottom: 1px solid grey;
+}
+.footergrid
+{
+  display: flex;
+  display: grid;
+  
+}
+#blue
+{
+  color: #1a01f7;
+}
+
+footer {
+  background-color: #EBEFF5;
+  padding: 20px 20px 20px 30px;
+}
+#contact img
+{
+  height: 100px;
+  width: 200px;
+}
+footer ul
+{
+  display: flex;
+}
+#contact
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: space-between;
+}
+#iconlogo
+{
+  padding-left: 50%;
+  padding-top: 8%;
+}

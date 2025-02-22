@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let id;
+        let count=0;
+        function print()
+        {
+            document.getElementById("myh3").innerHTML=count+"seconds";
+            count++;
+        }
+        function start()
+        {
+            id=window.setInterval(print,1000);
+        }
+        function stop()
+        {
+            window.clearInterval(id);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="start()" id="start">start</button>
+    <h3 id="myh3">Timing start</h3>
+    <button onclick="stop()" id="stop">stop</button>
+</body>
+</html>

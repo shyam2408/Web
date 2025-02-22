@@ -1,0 +1,141 @@
+.elementor-97511 .elementor-element.elementor-element-54dff714 > .elementor-container{max-width:500px;}.elementor-97511 .elementor-element.elementor-element-54dff714{margin-top:0px;margin-bottom:0px;padding:0px 0px 0px 0px;}.elementor-97511 .elementor-element.elementor-element-65edc35c > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:20px;}.elementor-97511 .elementor-element.elementor-element-65edc35c > .elementor-element-populated, .elementor-97511 .elementor-element.elementor-element-65edc35c > .elementor-element-populated > .elementor-background-overlay, .elementor-97511 .elementor-element.elementor-element-65edc35c > .elementor-background-slideshow{border-radius:4px 4px 4px 4px;}.elementor-97511 .elementor-element.elementor-element-65edc35c > .elementor-element-populated{box-shadow:0px 0px 10px 0px #EBEAEA;margin:0px 0px 0px 0px;--e-column-margin-right:0px;--e-column-margin-left:0px;padding:0px 0px 30px 0px;}.elementor-97511 .elementor-element.elementor-element-360660aa{text-align:left;}.elementor-97511 .elementor-element.elementor-element-360660aa img{border-radius:4px 4px 0px 0px;}.elementor-97511 .elementor-element.elementor-element-54085de7 > .elementor-widget-container{padding:0px 20px 0px 20px;}.elementor-97511 .elementor-element.elementor-element-51caac31 .elementor-heading-title{color:#334155;font-family:"futura-pt", Inter;font-size:20px;font-weight:700;line-height:26px;}.elementor-97511 .elementor-element.elementor-element-51caac31 > .elementor-widget-container{margin:0px 0px 0px 0px;padding:0px 20px 0px 20px;}.elementor-97511 .elementor-element.elementor-element-ac2fa04 > .elementor-widget-container{padding:0px 20px 0px 20px;}.elementor-97511 .elementor-element.elementor-element-27804774 .elementor-button{font-weight:600;fill:#444CE7;color:#444CE7;background-color:#FFFFFF;padding:0px 0px 0px 20px;}.elementor-97511 .elementor-element.elementor-element-27804774 > .elementor-widget-container{padding:0px 0px 0px 0px;}@media(max-width:1024px){.elementor-97511 .elementor-element.elementor-element-51caac31 .elementor-heading-title{font-size:18px;}}@media(min-width:768px){.elementor-97511 .elementor-element.elementor-element-65edc35c{width:100%;}}/* Start custom CSS for shortcode, class: .elementor-element-54085de7 *//*#case-study-tags li {*/
+/*    margin-right:15px;*/
+/*    font-size:12px;*/
+/*    font-weight: 600;*/
+/*}*/
+ 
+/*#case-study-tags li:first-child{*/
+/*    color:#B54708;*/
+/*    padding: 5px 10px;*/
+/*    border-radius: 4px;*/
+/*    background: #FFFAEB;*/
+/*    border: 1px solid #FEDF89;*/
+/*}*/
+ 
+/*#case-study-tags li:nth-child(2){*/
+/*    color:#175CD3;*/
+/*    padding: 5px 10px;*/
+/*    border-radius: 4px;*/
+/*    background: #EFF8FF;*/
+/*    border: 1px solid #B2DDFF;*/
+/*}*/
+/*@media (max-width:600px) {*/
+/*    #case-study-tags li {*/
+/*        font-size:12px;*/
+/*    }*/
+/*    #case-study-tags li:first-child {*/
+/*        padding: 5px 7px*/
+/*    }*/
+/*    #case-study-tags li:nth-child(2){ */
+/*        padding: 5px 7px;*/
+/*    }*/
+/*    #case-study-tags li {*/
+/*        margin-right:8px;*/
+/*    }*/
+/*}*/
+#case-study-tags li {
+    margin-right: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius:4px;
+    display: inline-block; /* Ensure inline-block display by default */
+    padding: 0px 10px; /* Ensure consistent padding */
+    white-space: nowrap; /* Prevent text wrapping within the tag */
+}
+
+#case-study-tags li:first-child {
+    color: #B54708;
+    background: #FFFAEB;
+    border: 1px solid #FEDF89;
+}
+
+#case-study-tags li:nth-child(2) {
+    color: #175CD3;
+    background: #EFF8FF;
+    border: 1px solid #B2DDFF;
+}
+
+/* Flex container for tags */
+.succcess-story-tags ul {
+    /*display: flex;*/
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 8px; /* Add space between tags */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Remove default list styling */
+}
+
+@media (max-width: 1024px) {
+    #case-study-tags li {
+        font-size: 11px;
+    }
+
+    #case-study-tags li:first-child,
+    #case-study-tags li:nth-child(2) {
+        padding: 0px 7px;
+    }
+}
+
+@media (max-width: 360px) {
+    .succcess-story-tags ul {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .succcess-story-tags li {
+        /*width: 100%;*/
+        /*margin: 5px 0; */
+        text-align: left; /* Align text to the left */
+    }
+}
+.succcess-story-tags li:first-child{
+        margin-bottom: 8px; 
+    }/* End custom CSS */
+/* Start custom CSS for theme-post-title, class: .elementor-element-51caac31 */#case-study-title{
+    display: block !important;
+}
+
+#case-study-title a:hover{
+    color: #ff4800 !important;
+}/* End custom CSS */
+/* Start custom CSS for button, class: .elementor-element-27804774 */#resource-read-more:hover .features-right-arrow-icon {
+    transform: translateX(12px);
+}
+.features-right-arrow-icon {
+    transition: transform 0.3s ease;
+}/* End custom CSS */
+/* Start custom CSS for column, class: .elementor-element-65edc35c */#case-study-loop-posts{
+    border: 1px solid #EAECF0;
+    border-radius:16px;
+
+}
+/*.elementor-111057 .elementor-element.elementor-element-78a3b89 img{*/
+/*    border-radius: 16px 16px 0px 0px !important;*/
+/*}*/
+
+#case-study-feature-image img{
+        border-radius: 16px 16px 0px 0px !important;
+}
+.elementor-97511 .elementor-element.elementor-element-65edc35c > .elementor-element-populated{
+    box-shadow:none !important;
+}/* End custom CSS */
+/* Start custom CSS for section, class: .elementor-element-54dff714 */.blog-updated-tag{
+    position: absolute;
+    right: 0;
+    height: 16px !important;
+    z-index: 1;
+    padding:3px 5px 18px 8px;
+    color:#000000;
+    background: rgb(255, 202, 98) !important;
+    border-radius: 0px 3px 0px 10px !important;
+    font-family: "Roboto" !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.5px !important;
+}
+@media screen and (max-width:992px){
+.blog-updated-tag{
+    right:15px !important;
+}
+}/* End custom CSS */

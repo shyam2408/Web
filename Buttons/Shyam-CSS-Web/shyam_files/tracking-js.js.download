@@ -1,0 +1,177 @@
+// Syncfusion Analytics
+var today = null;
+var uuid = '';
+var pageCount = 1;
+var url = '';
+var sid = '';
+
+//used to create cookie with expiry
+function createCookie(cookieName, cookieValue) {
+    var d = new Date();
+    var expires = '';
+    if (cookieName != '_pageCount') {
+        d.setMonth(d.getMonth() + 24);
+        expires = ";expires=" + d.toUTCString();
+    }
+    if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+        document.cookie = cookieName + "=" + cookieValue + expires + ",domain=.boldreports.com;path=/";
+    } else {
+        document.cookie = cookieName + "=" + cookieValue + expires + ";domain=.boldreports.com;path=/";
+    }
+}
+
+//used to check the given cookie is available or not
+function getCookie(cookieName) {
+    var name = cookieName + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == ' ')
+            cookie = cookie.substring(1);
+        if (cookie.indexOf(name) == 0)
+            return cookie.substring(name.length, cookie.length);
+    }
+    return "";
+}
+
+analytics();
+
+function analytics() {
+
+	    //get client customer id from local storage from dynamic site
+    if(localStorage.getItem('customerId_analytics') != null && localStorage.getItem('customerId_analytics') != undefined && localStorage.getItem('customerId_analytics') != '') {
+ 
+        sid = JSON.parse(localStorage.getItem("customerId_analytics")).value;
+    }
+    else {
+        sid = '';
+    }
+
+    pageDetails();
+    //creates the key value pair to be sent for analytics api
+    var model = {
+        UUID: uuid,
+        PageUrl: url,
+        CurrentTime: today.toLocaleString(),
+        PageCount: pageCount,
+        CustomerIP: myip,
+        CustomerID: sid,
+		ReferrerUrl: document.referrer,
+        Queue: 'Bold Reports'
+    }
+    postRequest(model);
+}
+
+//used to change the client offset to est offset
+function ESTTimeOffset() {
+    var jan = new Date(today.getFullYear(), 0, 1);
+    var jul = new Date(today.getFullYear(), 6, 1);
+    return (Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) <= today.getTimezoneOffset() ? -4 : -5) * 3600000;
+}
+
+function pageDetails() {
+    today = new Date();
+    url = window.location.href;
+
+    //for creating new uuid if the client has no uuid cookies
+    var loadTimeOffset = today.getTimezoneOffset() * 60000;
+    var estTimeOffset = ESTTimeOffset();
+    var timeUTC = today.getTime() + loadTimeOffset;
+    var timeEST = new Date(timeUTC + estTimeOffset) / 1;
+
+    //check uuid in browser cookie
+    if (getCookie('_uid') != '') {
+        uuid = getCookie('_uid');
+    } else {
+        uuid = Math.floor(Math.random() * 1000) + 1 + timeEST.toString();
+        createCookie('_uid', uuid);
+    }
+
+    //check sid in browser cookie
+//     if (getCookie('_sid') != '') {
+//         sid = getCookie('_sid');
+//     }
+
+    //count and stores the number of pages user is visited
+    if (getCookie('_pageCount') != '') {
+        pageCount += parseInt(getCookie('_pageCount'));
+        createCookie('_pageCount', pageCount);
+    } else {
+        createCookie('_pageCount', pageCount);
+    }
+}
+
+//post ajax request to be sent to analytics api
+function postRequest(dataModel) {
+    apiUrl = "https://www.boldreports.com/account/page-visit-log/" + dataModel;
+    jQuery.ajax({
+        type: "post",
+        url: apiUrl,
+        data: dataModel,
+        dataType: 'json',
+        crossDomain: true
+    });
+}
+
+if (jQuery('.userUid').length > 0 && jQuery('.clientIP').length > 0) {
+    jQuery('.userUid').val(getCookie('_uid'));
+    jQuery('.clientIP').val(myip);
+}
+
+// Log Cookie Consent
+var cookieMessage = jQuery("<div id='cookie'></div>");
+if(jQuery("#page").length > 0) {
+  jQuery("#page").append(cookieMessage);
+} else {
+  jQuery("#primary,.elementor-location-footer").append(cookieMessage);
+}
+jQuery('#cookie').html("<div id='custom-popup-text'>We use cookies to give you the best experience on our website. If you continue to browse, then you agree to our <a href='/privacy'>privacy policy</a> and <a href='/cookie-policy'>cookie policy</a>.</div><div class='custom-agree-button btn'>Accept <i class='fa fa fa-angle-right'></i></div>");
+
+jQuery("#cookie .custom-agree-button").click(function () {
+    var cookiehost = "";
+    if (uuid == "") {
+        pageDetails();
+    }
+    var jsonData = {
+        'IPAddress': myip,
+        'Uuid': uuid,
+        'CookieConsentOriginName': 'BoldReportsFooter'
+    };
+    if (window.location.host == "staging.boldreports.com") { cookiehost = "//staging.syncfusion.com:97"; } else { cookiehost = "//websiteapi.syncfusion.com"; }
+    createCookie("cookie-consent", "true");
+    jQuery("#cookie").animate({ opacity: 0, bottom: '-300px' }, 500);
+    jQuery.ajax({
+        type: "POST",
+        url: cookiehost + "/account/updatecookieconsent",
+        data: jsonData,
+        success: function (result) {
+            if (result.isSuccess) {
+                createCookie("cookie-consent", "true");
+                jQuery("#cookie").animate({ opacity: 0, bottom: '-300px' }, 500);
+				jQuery("#cookie").css("display", "none");
+				 jQuery("#chatIcon").removeClass("chatIconblock");
+		        jQuery("#chatOption").removeClass("chatOptionBlock");
+		        jQuery("#livechat").removeClass("livechatBlock");
+				jQuery("#wpfront-scroll-top-container").css("bottom", "7em");
+            }
+        }
+    });
+});
+
+window.onload = function (e) {
+    if (getCookie('cookie-consent') != undefined && getCookie('cookie-consent') == "true") {
+        jQuery("#cookie").css("display", "none");
+		 jQuery("#chatIcon").removeClass("chatIconblock");
+		jQuery("#chatOption").removeClass("chatOptionBlock");
+		jQuery("#livechat").removeClass("livechatBlock");
+		jQuery("#wpfront-scroll-top-container").css("bottom", "7em");
+    }
+    else {
+        jQuery("#cookie").css("display", "block");
+		jQuery("#chatIcon").addClass("chatIconblock");
+		jQuery("#chatOption").addClass("chatOptionBlock");
+		jQuery("#livechat").addClass("livechatBlock");
+		jQuery("#wpfront-scroll-top-container").css("bottom", "12em");
+		
+    }
+}

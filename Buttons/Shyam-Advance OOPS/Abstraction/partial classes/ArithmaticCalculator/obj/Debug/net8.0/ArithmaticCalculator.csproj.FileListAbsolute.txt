@@ -1,0 +1,14 @@
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\bin\Debug\net8.0\ArithmaticCalculator.exe
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\bin\Debug\net8.0\ArithmaticCalculator.deps.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\bin\Debug\net8.0\ArithmaticCalculator.runtimeconfig.json
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\bin\Debug\net8.0\ArithmaticCalculator.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\bin\Debug\net8.0\ArithmaticCalculator.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.AssemblyInfoInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.AssemblyInfo.cs
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.csproj.CoreCompileInputs.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\refint\ArithmaticCalculator.dll
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.pdb
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ArithmaticCalculator.genruntimeconfig.cache
+C:\Users\ShyamEdison\OneDrive - Syncfusion\Desktop\Phase 3 Assingnments\Abstraction\partial classes\ArithmaticCalculator\obj\Debug\net8.0\ref\ArithmaticCalculator.dll

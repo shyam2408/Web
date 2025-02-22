@@ -1,0 +1,11 @@
+.icons{
+   
+    display: flex;
+    gap:15px;
+    flex-wrap: wrap;
+    width: 800px;
+   margin-left: 350px;
+}
+.icons i{
+    width: 150px;
+}

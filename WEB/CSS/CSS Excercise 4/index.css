@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.rounded{
+    border-radius: 10px;
+}
+.circle{
+    border-radius: 50%;
+}
+.bordered{
+ border: 1px solid black;
+ padding: 3px;
+}
+.text {
+    position: absolute;
+    z-index: -1;
+
+}
+.nature{
+    margin-top: 140px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+}

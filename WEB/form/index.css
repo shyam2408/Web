@@ -1,0 +1,140 @@
+body {
+
+    background-color:gray !important;
+}
+
+/* .container {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+} */
+.container {
+    display: flex;
+    flex-direction: row;     /* make main axis horizontal (default setting) */
+    justify-content: center; /* center items horizontally, in this case */
+    align-items: center;     /* center items vertically, in this case */
+    height: 720px;
+}
+
+.container1 {
+    
+    border: 1px solid black;
+    width: 310px;
+    height: 400px;
+    background-color:rgb(128, 0, 0,0.8);
+    font-family:  "Roboto", sans-serif;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+   
+}
+.logoimage{
+    padding-top: 30px;
+    /* background-color: inherit; */
+}
+.container1 h2,h4{
+    
+    line-height: 1px;
+    letter-spacing: 1px;
+    color: white;
+    
+}
+.container h2{
+    padding-top: 20px;
+    font-size: 32px;
+    
+}
+.container h4{
+    font-size: 25px;
+}
+.container1 p,q,blockquote{
+    padding-top: 10px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.logintext{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.facebook{
+    width: 300px;
+    border: 1px solid #354f88;;
+   
+    background-color:#354f88;;
+    height: 25px;
+    color: white;
+    padding-left: 5px;
+}
+.google{
+    width: 300px;
+    border: 1px solid orangered;
+   
+    background-color:orangered;
+    height: 25px;
+    color: white;
+    padding-left: 5px;
+
+}
+.twitter{
+    width: 300px;
+    border: 1px solid dodgerblue;
+   
+    background-color:dodgerblue;
+    height: 25px;
+    color: white;
+    padding-left: 5px;
+
+}
+
+.container2 {
+
+    width: 310px;
+    height: 400px;
+
+    font-family:  "Roboto", sans-serif;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: white;
+}
+.container2login
+{
+    font-weight: bold;
+}
+.container2create{
+    color: brown;
+}
+.inputs input{
+    border:1px  solid gainsboro;
+    height: 35px;
+    border-radius: 5px;
+    width: 250px;
+}
+.passwordinput{
+    margin-top: 10px;
+}
+.Remember{
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 14px;
+    color: grey;
+}
+.loginbutton{
+    background-color:crimson;
+    padding: 10px;
+    color: white;
+    width: 50px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.forgot{
+    color: brown;
+}
+

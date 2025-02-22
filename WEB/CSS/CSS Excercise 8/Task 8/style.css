@@ -1,0 +1,76 @@
+* {
+    text-decoration: none;
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 200px;
+    background-color: rgb(241, 187, 187);
+}
+
+li a:hover {
+    background-color: #e39905;
+    color: white;
+}
+
+#logo a:hover {
+    background-color: #f7a90e;
+    color: rgb(255, 255, 255);
+}
+
+#logo a {
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    justify-content: space-around;
+    margin: 0 20px;
+}
+
+li a {
+    color: rgb(111, 111, 111);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+
+#grid {
+    padding: 50px 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+#grid .card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;}
+
+#grid .card img{
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#grid .card .container{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+#grid .card .rating{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}

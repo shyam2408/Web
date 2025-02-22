@@ -1,0 +1,354 @@
+* {
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+header {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+}
+
+.navbar {
+    margin: 0px 161px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar .logo {
+    width: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .pages ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .pages ul li {
+    margin: 0px 5px;
+    padding: 0px 5px;
+}
+
+.navbar a:hover {
+    color: rgb(105, 65, 198);
+}
+
+.navbar .btn ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.navbar .btn ul li {
+    margin: 0px 5px;
+    padding: 0px 5px;
+}
+
+.navbar .btn ul li .b1 {
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: solid rgb(105, 65, 198) 1px;
+    background-color: white;
+    color: rgb(105, 65, 198);
+}
+
+.navbar .btn ul li .b1 :hover {
+    background-color: rgb(249, 245, 255);
+}
+
+.navbar .btn ul li .b2 {
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: solid rgb(105, 65, 198) 1px;
+    background-color: rgb(105, 65, 198);
+    color: white;
+}
+
+.navbar .btn ul li .b2 :hover {
+    background-color: rgb(123, 82, 219);
+}
+
+
+.banner {
+    display: flex;
+    background-image: url(Images/contact-us-banner.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    font-size: x-large;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.bot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    text-align: center;
+    width: auto;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+.bot input {
+
+    height: 20px;
+    width: 20px;
+    margin-left: -130px;
+    color: black;
+    background-color: black;
+}
+
+.bot p {
+
+    border: 1px solid grey;
+    width: 200px;
+    position: absolute;
+    height: 30px;
+    padding-top: 25px;
+    background-color: rgb(223, 183, 233, 0.2);
+
+}
+
+.submit {
+
+    background-color: orangered;
+    color: white;
+    width: 200px;
+    height: 40px;
+    padding: 4px;
+    margin-left: auto;
+    text-align: center;
+    margin-right: auto;
+    border-radius: 5px;
+    font-size: 18px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+
+.company {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: rgb(248, 248, 248);
+}
+
+.company .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 51px;
+    margin: 51px;
+}
+
+.company .grid .gap1 {
+    background-color: white;
+    padding: 30px;
+    height: 351px;
+    width: 400px;
+    text-align: left;
+    box-shadow: rgb(132, 130, 130) 8px;
+}
+
+.company .grid .gap2 {
+    background-color: white;
+    padding: 30px;
+    height: 351px;
+    width: 400px;
+    text-align: left;
+    box-shadow: rgb(147, 146, 146) 8px;
+}
+
+
+
+.contacttwo input {
+    border-radius: 5px;
+    padding: 16px;
+    width: 400px;
+    margin-top: 16px;
+    border: 1px solid grey;
+    margin-left: 30px;
+}
+
+.textarea input {
+    height: 100px;
+    width: 440px;
+    padding: 0;
+}
+
+.contacttwo p {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 30px;
+
+}
+
+.contacttwo span {
+    color: orangered;
+}
+
+.company .grid .gap3 {
+    background-color: white;
+    padding: 30px;
+    height: 161px;
+    width: 400px;
+    text-align: left;
+    box-shadow: rgb(118, 117, 117) 8px;
+}
+
+
+
+.conect {
+    background-image: url();
+    margin: 51px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.conect .conecth {
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+}
+
+.conect .connetlogos ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.conect .connetlogos ul li {
+    margin: 0px 20px;
+    padding: 0px 20px;
+}
+
+.footersub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(242, 244, 247);
+    padding: 51px 200px;
+}
+
+.footersub div a {
+    color: black;
+}
+
+.footersub .grid1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.footersub .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 51px;
+}
+
+.footer {
+    background-color: rgb(242, 244, 247);
+    padding: 10px 161px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer .copy {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.footer .pagefooter ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer .pagefooter ul li {
+    margin: 0px 6px;
+    padding: 0px 6px;
+}
+
+.contact {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding-top: 51px;
+    padding-bottom: 51px;
+}
+
+.card {
+    padding-top: 100px;
+    width: 555px;
+}
+
+.card img {
+    height: 51px;
+}
+
+.card h2 {
+    font-size: 28px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card p {
+    font-size: 16px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 410px;
+}
+
+.card span {
+    color: orangered;
+}
+
+.contacttwo {
+    padding-left: 51px;
+    padding-right: 51px;
+    padding: 16px;
+    border: 1px solid white;
+
+    box-shadow: -5px -5px 3px rgba(167, 169, 169, 0.1);
+    background-color: white;
+    margin-top: 40px;
+
+}
+
+.contacttwo h2 {
+    font-size: 28px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.form {
+    padding-top: 16px;
+    width: 510px;
+
+}

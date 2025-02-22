@@ -1,0 +1,118 @@
+.elementor-92211 .elementor-element.elementor-element-1d56f6ef{margin-top:100px;margin-bottom:0px;padding:0px 0px 0px 0px;}.elementor-92211 .elementor-element.elementor-element-4ee75db2 > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:0px;}.elementor-92211 .elementor-element.elementor-element-599df2f9{text-align:left;}.elementor-92211 .elementor-element.elementor-element-599df2f9 .elementor-heading-title{color:#334155;font-family:"InterMedium", Inter;font-size:20px;font-weight:normal;line-height:25px;}.elementor-92211 .elementor-element.elementor-element-599df2f9 > .elementor-widget-container{margin:0px 0px 4px 0px;}.elementor-92211 .elementor-element.elementor-element-10647fac .elementor-widget-container{color:#334155;font-family:"Roboto", Inter;font-size:16px;line-height:29px;}.elementor-92211 .elementor-element.elementor-element-10647fac > .elementor-widget-container{margin:0px 0px 0px 0px;}@media(min-width:768px){.elementor-92211 .elementor-element.elementor-element-1fcb5188{width:26%;}.elementor-92211 .elementor-element.elementor-element-4ee75db2{width:74%;}}@media(max-width:1024px) and (min-width:768px){.elementor-92211 .elementor-element.elementor-element-1fcb5188{width:30%;}.elementor-92211 .elementor-element.elementor-element-4ee75db2{width:70%;}}@media(max-width:1024px){.elementor-92211 .elementor-element.elementor-element-599df2f9 .elementor-heading-title{font-size:16px;}.elementor-92211 .elementor-element.elementor-element-10647fac .elementor-widget-container{font-size:16px;line-height:1.5em;}}@media(max-width:767px){.elementor-92211 .elementor-element.elementor-element-599df2f9 .elementor-heading-title{font-size:17px;}.elementor-92211 .elementor-element.elementor-element-10647fac .elementor-widget-container{font-size:16px;line-height:29px;}}/* Start custom CSS for html, class: .elementor-element-66124831 */.hide-popup{
+       visibility: hidden !important;
+    }
+/*#popup-modal-id{*/
+/*    z-index: 10000 !important;*/
+/*}*/
+    .popup-modal {
+/* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 0px; /* Location of the box*/ 
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content{
+        top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) !important;
+    position: absolute !important;
+     padding-bottom: 42.25% !important; 
+      width: 75% !important;
+    }
+.modal-content iframe{
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+}
+.close {
+  color: hsla(0,0%,93.3%,0.9);
+    float: right;
+    width: 45px;
+    opacity: 1;
+    display: block;
+    font-style: normal;
+    font-family: 'eicons' !important;
+    text-rendering: auto;
+    font-variant: normal;
+    line-height: 1;
+    font-weight: 400;
+    font-size: x-large;
+    margin-top: 13px;
+    -webkit-font-smoothing: antialiased;
+}
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+@media screen and (min-width:500px)and (max-width: 768px){
+     .modal-content {
+        width: 85% !important;
+        padding-bottom: 48.25% !important;
+     }
+}
+@media screen and (max-width: 499px){
+    .modal-content{
+    padding-bottom: 50.25% !important; 
+    width: 90% !important;
+    }
+}
+#top-header{
+    z-index: 999 !important;
+}/* End custom CSS */
+/* Start custom CSS for theme-post-title, class: .elementor-element-599df2f9 */.video-title h4{
+    font-size:20px !important;
+   cursor: pointer;
+   display: inline-block;
+             }
+.video-title h4:hover{
+   color: #ff4800 !important;
+}/* End custom CSS */
+/* Start custom CSS for theme-post-excerpt, class: .elementor-element-10647fac */.video-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .video-excerpt div{
+overflow: hidden; 
+text-overflow: ellipsis;
+ max-height: 58px;
+}
+ @media (max-width: 1024px) {
+  .video-excerpt div{
+    max-height: 42px;
+  }}
+}
+@media (max-width:1025px){
+    .video-excerpt .elementor-widget-container{
+        font-size:16px !important;
+        line-height:29px !important;
+    }
+}
+
+#videos-section-excerpt{
+    font-family: Roboto !important;
+}/* End custom CSS */
+/* Start custom CSS for section, class: .elementor-element-1d56f6ef */.individual-video-section > div{
+    padding: 0 !important;
+}
+.search-results div[data-elementor-type=loop]{
+    margin-left: -10px;
+}
+  @media (max-width: 767px) {
+ .search-results div[data-elementor-type=loop]{
+    margin-left: 0px;
+}
+      
+  }/* End custom CSS */
+/* Start custom CSS */#top-header{
+    z-index:999 !important;
+}/* End custom CSS */

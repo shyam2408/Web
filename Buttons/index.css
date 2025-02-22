@@ -1,0 +1,252 @@
+.container{
+    margin-top: 20px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons1
+{
+    display: flex;
+    gap: 10px;
+}
+.button1{
+    border: 1px solid red;
+    background-color:red;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+.button2{
+    border: 1px solid dodgerblue;
+    background-color:dodgerblue;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+.button3{
+    border: 1px solid mediumseagreen;
+    background-color:mediumseagreen;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+.button4{
+    border: 1px solid darkorange;
+    background-color:darkorange;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.button5{
+    border: 1px solid darkcyan ;
+    background-color:darkcyan;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+.button6{
+    border: 1px solid black;
+    background-color:black;
+    color: white;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.button7{
+    /* border: 1px solid black;
+    background-color:black;
+    color: white;
+    width:fit-content; */
+    /* padding: 10px; */
+}
+.buttons2
+{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+.buttons3
+{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+.button31{
+    border: 1px solid black;
+    background-color:white;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.button32{
+    border: 1px solid grey;
+    background-color:grey;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+}
+.button33{
+    border: 1px solid dodgerblue;
+    background-color:white;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+
+}
+.button34{
+    border: 1px solid red;
+    background-color:white;
+    color: red;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+
+}
+.button35{
+    border: 1px solid mediumseagreen;
+    background-color:white;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+
+}
+.button36{
+    border: 1px solid red;
+    background-color:red;
+    color: white;
+    font-weight: bold;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-shadow: 0 1px;
+}
+.button37{
+    border: 1px solid black;
+    background-color:black;
+    color: white;
+    width:fit-content;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* .buttons4{
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+.button41
+{
+    border: 1px solid black;
+    background-color:black;
+    color: white;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.button42
+{
+    border: 1px solid darkcyan;
+    background-color:darkcyan;
+    color: white;
+    border-radius: 100%;
+    padding: 20px;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.button43
+{
+    border: 1px solid grey;
+    background-color:grey;
+    color: white;
+    border-radius: 100%;
+    padding: 20px;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+} */
+.buttons5{
+    margin-top: 10px;
+    display: flex;
+    /* gap: 5px; */
+}
+.button51
+{
+    border: 1px solid black;
+    background-color:black;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+
+}
+.button52
+{
+    border: 1px solid darkcyan;
+    background-color:darkcyan;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+
+}
+.button53
+{
+    border: 1px solid grey;
+    background-color:grey;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+
+}
+.buttons4{
+    
+    margin-top: 10px;
+}
+.button41{
+    background-color:black;
+    padding:5px 15px 5px 15px;
+    font-size: 26px;
+    border-radius: 50%;
+    color: white;
+}
+.button42{
+    border: 1px solid darkcyan;
+    background-color:darkcyan;
+    padding:5px 15px 5px 15px;
+    font-size: 26px;
+    border-radius: 50%;
+    color: white;
+}
+.button43{
+    border: 1px solid grey;
+    background-color:grey;
+    padding:5px 15px 5px 15px;
+    font-size: 26px;
+    border-radius: 50%;
+    color: white;
+}

@@ -1,0 +1,76 @@
+.elementor-77444 .elementor-element.elementor-element-b13da34 > .elementor-container{max-width:500px;}.elementor-77444 .elementor-element.elementor-element-b13da34{box-shadow:0px 0px 0px 0px rgba(0,0,0,0.5);}.elementor-77444 .elementor-element.elementor-element-8a541f7 > .elementor-widget-wrap > .elementor-widget:not(.elementor-widget__width-auto):not(.elementor-widget__width-initial):not(:last-child):not(.elementor-absolute){margin-bottom:20px;}.elementor-77444 .elementor-element.elementor-element-8a541f7 > .elementor-element-populated, .elementor-77444 .elementor-element.elementor-element-8a541f7 > .elementor-element-populated > .elementor-background-overlay, .elementor-77444 .elementor-element.elementor-element-8a541f7 > .elementor-background-slideshow{border-radius:4px 4px 4px 4px;}.elementor-77444 .elementor-element.elementor-element-8a541f7 > .elementor-element-populated{box-shadow:0px 0px 0px 0px #EBEAEA;margin:0px 0px 0px 0px;--e-column-margin-right:0px;--e-column-margin-left:0px;}.elementor-77444 .elementor-element.elementor-element-5aa9fac{text-align:left;}.elementor-77444 .elementor-element.elementor-element-5aa9fac img{border-radius:0px 0px 0px 0px;}.elementor-77444 .elementor-element.elementor-element-ea3e547 .elementor-heading-title{color:#334155;font-family:"InterBold", Inter;font-size:20px;font-weight:600;line-height:26px;}.elementor-77444 .elementor-element.elementor-element-ea3e547 > .elementor-widget-container{margin:0px 0px -5px 0px;padding:10px 0px 0px 0px;}.elementor-77444 .elementor-element.elementor-element-ca5568f .elementor-widget-container{line-height:22px;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-item:not(:last-child):after{content:"";height:65%;border-color:#ddd;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item:not(:last-child):after{border-top-style:solid;border-top-width:1px;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item:not(:last-child):after{border-left-style:solid;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-inline-items .elementor-icon-list-item:not(:last-child):after{border-left-width:1px;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-icon{width:14px;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-icon i{font-size:14px;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-icon svg{--e-icon-list-icon-size:14px;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-text, .elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-text a{color:#FF4800;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-item{font-family:"Roboto", Inter;}.elementor-77444 .elementor-element.elementor-element-81d4cf6 > .elementor-widget-container{margin:-5px 0px 0px 0px;padding:0px 30px 0px 0px;}@media(min-width:768px){.elementor-77444 .elementor-element.elementor-element-8a541f7{width:100%;}}@media(max-width:1024px){.elementor-77444 .elementor-element.elementor-element-ea3e547 .elementor-heading-title{font-size:18px;}}@media(max-width:767px){.elementor-77444 .elementor-element.elementor-element-81d4cf6 .elementor-icon-list-item{font-size:12px;line-height:20px;}}/* Start custom CSS for theme-post-title, class: .elementor-element-ea3e547 */#post-title-blog-posts{
+    display: block !important;
+}
+#post-title-blog-posts{
+    margin-bottom:35px;
+}/* End custom CSS */
+/* Start custom CSS for post-info, class: .elementor-element-81d4cf6 */.bold-blog-card {
+    font-size: 14px;
+    line-height: 16px;
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+   .bold-blog-card{
+       line-height:20px;
+   }   
+}/* End custom CSS */
+/* Start custom CSS for column, class: .elementor-element-8a541f7 */#blog-card-box{
+    height:330px;
+    margin:0px;
+    padding:0px;
+}
+
+@media screen and (max-width:1024px) and (min-width:768px){
+    #blog-card-box{
+        height:310px;
+    }
+}
+@media screen and (max-width:353px) and (min-width:320px){
+    
+    #blog-card-box{
+        height:300px;
+    }
+}
+
+@media screen and (max-width:400px) and (min-width:354px){
+    
+    #blog-card-box{
+        height:300px;
+    }
+}
+@media screen and (max-width:509px) and (min-width:401px){
+    
+    #blog-card-box{
+        height:320px;
+    }
+}
+
+@media screen and (max-width:767px) and (min-width:510px){
+    
+    #blog-card-box{
+        height:350px;
+    }
+}/* End custom CSS */
+/* Start custom CSS for section, class: .elementor-element-b13da34 */.blog-updated-tag{
+    position: absolute;
+    right: 0;
+    height: 16px !important;
+    z-index: 1;
+    padding:3px 5px 18px 8px;
+    color:#000000;
+    background: rgb(255, 202, 98) !important;
+    border-radius: 0px 3px 0px 10px !important;
+    font-family: "Roboto" !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.5px !important;
+}
+@media screen and (max-width:992px){
+.blog-updated-tag{
+    right:15px !important;
+}
+}/* End custom CSS */
+/* Start custom CSS */#footer-section{
+    margin-top:60px;
+}/* End custom CSS */

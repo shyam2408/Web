@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .heading {
+            text-align: center;
+        }
+
+        .detailstable {
+            display: grid;
+            align-self: center;
+            justify-self: center;
+        }
+
+        table {
+            width: 800px;
+            border: 1px solid rgb(20, 13, 29);
+            border-collapse: collapse;
+            border-radius: 10px;
+            border: 2px solid gray;
+            padding: 5%;
+        }
+
+        table tr {
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+         
+        }
+
+        .picture img {
+            width: 300px;
+            height: 300px;
+        }
+        *{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        * td{
+            color: rgb(63, 63, 63);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h2>All details</h2>
+    </div>
+    <div class="detailstable">
+        <table style="border-radius: 10px;">
+            <tr style="border: 2px solid black;">
+                <th>Username</th>
+                <td id="username">name</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>email</th>
+                <td id="email">email</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Phone number</th>
+                <td id="Phone">phone</td>
+            </tr>
+            <br >
+            <tr style="border: 2px solid black;">
+                <th>Password</th>
+                <td id="Password">Password</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Gender</th>
+                <td id="Gender">Gender</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Current address</th>
+                <td id="address">address</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Date of birth</th>
+                <td id="dob">Date</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Birth Time</th>
+                <td id="time">Time</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Known Languages</th>
+                <td id="languages">language</td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Field of Interest</th>
+                <td id="interest">interest</td>
+            </tr>
+            <br>
+            <tr class="picture" style="border: 2px solid black;">
+                <th>Photo</th>
+                <td><img id="picture" src="" alt=""></td>
+            </tr>
+            <br>
+            <tr style="border: 2px solid black;">
+                <th>Resume</th>
+                <td><a id="resume" href="" target="_blank"></a></td>
+            </tr>
+            <br>
+        </table>
+        <br>
+        <div>
+            <button onclick="back()" style="height: 150%; width: 20%; background-color: blue; color: white; border-radius: 10px; margin-left: 35%;">Back To Form</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("username").innerText = localStorage.getItem("firstname")
+        document.getElementById("email").innerText = localStorage.getItem("email")
+        document.getElementById("Phone").innerText = localStorage.getItem("phone")
+        document.getElementById("Password").innerText = "********"
+        document.getElementById("Gender").innerText = localStorage.getItem("gender")
+        document.getElementById("address").innerText = localStorage.getItem("presentaddress")
+        document.getElementById("dob").innerText = localStorage.getItem("dob")
+        document.getElementById("time").innerText = localStorage.getItem("time")
+        document.getElementById("languages").innerText = localStorage.getItem("languages")
+        document.getElementById("interest").innerText = localStorage.getItem("interest")
+        document.getElementById("picture").src = "uploads/" + localStorage.getItem("photo")
+        document.getElementById("resume").href = "uploads/" + localStorage.getItem("resume")
+        document.getElementById("resume").innerText = localStorage.getItem("resume")
+
+        function back() {
+            history.back();
+        }
+    </script>
+
+</body>
+
+</html>

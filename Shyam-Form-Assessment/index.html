@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .userheading {
+            text-align: center;
+        }
+
+        .formdetails {
+            display: grid;
+            align-self: center;
+            justify-self: center;
+            width: 750px;
+            font-size: 15px;
+            font-family: sans-serif;
+        }
+
+        input {
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid grey;
+        }
+
+        .name {
+            display: flex;
+            gap: 30px;
+            padding-top: 10px;
+        }
+
+        .contact {
+            display: flex;
+            gap: 30px;
+            padding-top: 10px;
+
+
+        }
+
+        .password {
+            display: flex;
+            gap: 30px;
+            padding-top: 10px;
+
+
+        }
+
+        .gender {
+            display: flex;
+            gap: 30px;
+            padding-top: 10px;
+
+
+        }
+
+        .address {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+
+
+        }
+
+        .pincode {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+
+
+        }
+
+        .state {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+
+
+        }
+
+        .dob {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+
+
+        }
+
+        .languages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+
+
+        }
+
+        .photo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+        }
+
+        .photo input {
+            border: none;
+        }
+
+        .submitbtn {
+
+            padding-top: 30px;
+
+        }
+
+        * {
+            color: rgb(63, 63, 63);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body style=" border-radius: 10px; border: 2px solid black; margin: 20%; padding: 5%;">
+    <div class="userheading">
+        <h2 style="color: rgb(78, 78, 79); border-radius: 10px; border: 2px solid black; height: 85px; padding-top: 50px;">Registration form</h2>
+    </div>
+    <br>
+    <br>
+    <form id="myform">
+        <div class="formdetails">
+            <div class="name">
+                <div>
+                    <p>Name: </p>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <input type="text" name="firstname" id="firstname" placeholder="Enter your Firstname">
+                    <div>
+                        <span style="color: red;" id="firstnameerror"></span>
+                    </div>
+                </div>
+                <br><br>
+                <div>
+                    <input type="text" name="lastname" id="lastname" placeholder="Enter your Lastname">
+                    <div>
+                        <span style="color: red;" id="lastnameerror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <p>Contact: </p>
+                <br>
+                <div>
+                    <input type="text" name="email" id="email" placeholder="Enter your Email">
+                    <div>
+                        <span style="color: red;" id="emailerror"></span>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <input type="text" name="phone" id="phone" placeholder="Enter your Mobilenumber">
+                    <div>
+                        <span style="color: red;" id="phoneerror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="password">
+                <p>Password: </p>
+                <br>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="Enter your password">
+                    <div>
+                        <span style="color: red;" id="passworderror"></span>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <input type="password" name="confirmpassword" id="confirmpassword"
+                        placeholder="Confirm your password">
+                    <div>
+                        <span style="color: red;" id="confirmpassworderror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="gender">
+                <p>Gender: </p>
+                <div>
+                    <br>
+                    <span style="color: red;" id="gendererror"></span>
+                </div>
+                <br>
+                <div style="align-items: center; justify-content: center; text-align: center; ">
+                    <input type="radio" name="gender" id="male" value="male">Male
+            
+                    <input type="radio" name="gender" id="female" value="female">Female
+                
+                    <input type="radio" name="gender" id="others" value="others">Others
+                </div>
+            </div>
+            <br>
+            <div class="address">
+                <div>
+                    <p>Present address: </p>
+                    <input type="text" placeholder="address" name="presentaddress" id="presentaddress" style="height: 50%; text-align: start;">
+                    <div>
+                        <span style="color: red;" id="presentaddresserror"></span>
+                    </div>
+                </div>
+                <div>
+                    <p>Permanent address: &nbsp; &nbsp; &nbsp;
+                        <input type="checkbox" name="permanentcheckbox" id="permanentcheckbox">&nbsp; same as present address
+                    </p>
+                    <input type="text" placeholder="address" name="permanentaddress" id="permanentaddress" style="height: 50%; text-align: start;">
+                    <div>
+                        <span style="color: red;" id="permanentaddresserror"></span>
+                    </div>
+                </div>
+            </div><br>
+            <div class="pincode">
+                <div>
+                    <p>Pincode: </p>
+                    <input type="text" placeholder="pincode" name="presentpincode" id="presentpincode">
+                    <div>
+                        <span style="color: red;" id="presentpincodeerror"></span>
+                    </div>
+                </div>
+                <div>
+                    <p>Pincode: </p>
+                    <input type="text" placeholder="pincode" name="permanentpincode" id="permanentpincode">
+                    <div>
+                        <span style="color: red;" id="permanentpincodeerror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="state">
+                <div>
+                    <p>State: </p>
+                    <select name="presentstate" id="presentstate">
+                        <option value="">Select state</option>
+                        <option value="Tamilnadu">Tamilnadu</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Karnataka">Karnataka</option>
+                    </select>
+                    <div>
+                        <span style="color: red;" id="presentstateerror"></span>
+                    </div>
+                </div>
+                <div>
+                    <p>State: </p>
+                    <select name="permanentstate" id="permanentstate">
+                        <option value="">Select state</option>
+                        <option value="Tamilnadu">Tamilnadu</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Karnataka">Karnataka</option>
+                    </select>
+                    <div>
+                        <span style="color: red;" id="permanentstateerror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="dob">
+                <div>
+                    <p>Date of birth:</p>
+                    <input type="date" name="dob" id="dob">
+                    <div>
+                        <span style="color: red;" id="doberror"></span>
+                    </div>
+                </div>
+                <div>
+                    <p>Birth time:</p>
+                    <input type="time" name="time" id="time">
+                    <div>
+                        <span style="color: red;" id="timeerror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="languages" id="lang">
+                <div style="display: grid; grid-template-columns: 1fr;   text-align: center; margin-right: 70%; ">
+                    <p>Languages</p>
+                    <input type="checkbox" name="languages" id="Tamil" value="Tamil">Tamil
+                    <input type="checkbox" name="languages" id="English" value="English">English
+                    <input type="checkbox" name="languages" id="French" value="French">French
+                    <div>
+                        <span style="color: red;" id="languageerror"></span>
+                    </div>
+                </div>
+                <div class="interest">
+                    <p>Select your field of interest</p>
+                    <div style="display: grid; grid-template-columns: 1fr;text-align: center; margin-right: 40%; ">
+                        <input type="checkbox" name="interest" id="Music" value="Music">Music
+                        <br>
+                        <input type="checkbox" name="interest" id="Singing" value="Singing">Singing
+                        <br>
+                        <input type="checkbox" name="interest" id="Dancing" value="Dancing">Dancing
+                        <br>
+                        <div>
+                            <span style="color: red;" id="interesterror"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="photo">
+                <div>
+                    <p>Upload your photo</p>
+                    <br>
+                    <input type="file" name="photo" id="photo" style="width: 150%; border-radius: 10px; color: blue;">
+                    <div>
+                        <span style="color: red;" id="photoerror"></span>
+                    </div>
+                </div>
+                <div class="resume">
+                    <p>Upload your resume: </p>
+                    <br>
+                    <input type="file" name="resume" id="resume" accept="application/pdf"
+                        style="width: 150%; border-radius: 10px; color: blue;">
+                    <div>
+                        <span style="color: red;" id="resumeerror"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="submitbtn">
+                <button type="submit" id="submit"
+                    style="height: 150%; width: 20%; background-color: rgb(0, 237, 79); color: white; border-radius: 10px; margin-left: 5%; border: white;">submit</button>
+                <button type="reset" id="reset"
+                    style="height: 150%; width: 20%; background-color: rgb(255, 0, 0); color: white; border-radius: 10px; margin-left: 15%; border: white;">Reset</button>
+            </div>
+        </div>
+    </form>
+    <script src="index.js"></script>
+</body>
+
+</html>

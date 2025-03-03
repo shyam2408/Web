@@ -1,0 +1,12 @@
+import { CustomerRegistration, ProductDetails, CartDetails } from './model';
+export declare function CheckCustomer(mailID: string): Promise<boolean>;
+export declare function AddNewCustomer(customer: CustomerRegistration): Promise<string>;
+export declare function GetIndividualUser(mailID: string, password: string): Promise<CustomerRegistration | null>;
+export declare function FetchProducts(): Promise<ProductDetails[]>;
+export declare function GetIndividualProduct(productID: string): Promise<ProductDetails | null>;
+export declare function AddNewProduct(product: ProductDetails): Promise<string>;
+export declare function CheckProductExist(productName: string): Promise<boolean>;
+export declare function EditProductDetail(product: ProductDetails): Promise<void>;
+export declare function AddItemToCart(cartItem: CartDetails): Promise<string>;
+export declare function DeleteProductDetail(productID: string): Promise<void>;
+export declare function RechargeWalletBalance(customerID: string, amount: number): Promise<void>;

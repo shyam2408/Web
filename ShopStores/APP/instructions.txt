@@ -1,0 +1,30 @@
+1. Create folder for application. Ex : SyncCart
+2. Creat tscofig.json file inside application folder and copy paste below content
+
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES6",
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "declaration": true,
+    "strict": true,
+  }
+}
+
+3.Create src folder inside application folder that have typescript files.
+4.Create dist folder inside application folder that have javascript files and refer the files in html file using  <script type="module" src="dist/script.js"></script>.
+5.Create styles folder to put css files and refer css file on html file using  <link rel="stylesheet" href="styles/styles.css">.
+6.Create index.html file inside application folder that contain application base html code.
+7. Create model.ts for putting interfaces/classes. Use export keyword to export interfaces/classes.
+8. Create apicalls.ts for putting api calling functions. Use export keyword to export functions.
+9 Create script.ts for putting business logic. import interfaces/classes and functions from model.ts and apicalls.ts.
+
+import { CustomerRegistration, ProductDetails,BookingDetails,PurchasedItems, CartDetails } from './model';
+import * as APICALLS from './apicalls.js'; //Import all methods from apicalls.js
+
+10. To make all functions visible in DOM
+
+const functions = {home, signInPage, signUpPage,LogOut, viewBill, deleteSpecificBooking, BuySingleCartItem, OrderHistory, CartItems, AddToCart, addProduct, deposit, deleteProduct, editProduct, editChosenProduct, PurchaseAllItems, NewProductPage, CustomerDetails, signInSubmit, submitForm, displayProducts, TakeOrder, displayBillContent,  ShowProductDetails,RechargeWallet, displayNone,...APICALLS };
+Object.assign(window, functions);
